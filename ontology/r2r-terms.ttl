@@ -1,0 +1,193 @@
+ @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix oasis: <http://www.dmi.unict.it/oasis.owl#> .
+@prefix osdm: <https://w3id.org/mobility/osdm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix r2r: <https://w3id.org/r2r#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix tmorg: <http://www.owl-ontologies.com/tmorg#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+osdm:confirmedPrice a owl:ObjectProperty ;
+    rdfs:label "confirmed price" ;
+    rdfs:domain r2r:OfferItem ;
+    rdfs:range osdm:Price .
+
+osdm:passengers a owl:ObjectProperty ;
+    rdfs:label "passengers" ;
+    rdfs:domain r2r:OfferItem ;
+    rdfs:range osdm:Passenger .
+
+osdm:reservations a owl:ObjectProperty ;
+    rdfs:label "reservations" ;
+    rdfs:domain r2r:OfferItem ;
+    rdfs:range osdm:Reservation .
+
+osdm:trip a owl:ObjectProperty ;
+    rdfs:label "trip" ;
+    rdfs:domain osdm:Offer ;
+    rdfs:range osdm:Trip .
+
+r2r: a owl:Ontology ;
+    dc:creator "Mario Scrocca" ;
+    dc:description "Ontology code created by Chowlk" ;
+    dc:title "Ride2Rail Agreement Ledger Ontology" ;
+    owl:versionInfo "1.0.0" .
+
+r2r:ContinuousLeg a owl:Class ;
+    rdfs:label "Continuous Leg" ;
+    rdfs:subClassOf r2r:TravelEpisode .
+
+r2r:Driver a owl:Class ;
+    rdfs:label "Driver" ;
+    rdfs:subClassOf tmorg:Operator .
+
+r2r:InventoryReservation a owl:Class ;
+    rdfs:label "Inventory Reservation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty r2r:quantity ],
+        osdm:Reservation .
+
+r2r:MultimodalDiscountIncentive a owl:NamedIndividual,
+        r2r:IncentiveSmartContract .
+
+r2r:MultimodalDiscountIncentive3 a owl:NamedIndividual,
+        r2r:IncentiveSmartContract .
+
+r2r:Ride a owl:Class ;
+    rdfs:label "Ride" ;
+    rdfs:subClassOf r2r:TransportationService .
+
+r2r:RideWithOtherPassengersIncentive a owl:NamedIndividual,
+        r2r:IncentiveSmartContract .
+
+r2r:RidesharingBooking a oasis:SmartContract,
+        owl:NamedIndividual .
+
+r2r:RidesharingLeg a owl:Class ;
+    rdfs:label "Ridesharing Leg" ;
+    rdfs:subClassOf r2r:TravelEpisode .
+
+r2r:SeatUpgradeVoucher a owl:Class ;
+    rdfs:label "Seat Upgrade Voucher" ;
+    rdfs:subClassOf r2r:Voucher .
+
+r2r:Seats a owl:NamedIndividual,
+        r2r:Consumable .
+
+r2r:TimedLeg a owl:Class ;
+    rdfs:label "Timed Leg" ;
+    rdfs:subClassOf r2r:TravelEpisode .
+
+r2r:book a oasis:Action,
+        owl:NamedIndividual .
+
+r2r:consumable a owl:ObjectProperty ;
+    rdfs:label "consumable" ;
+    rdfs:domain r2r:InventoryAllocation ;
+    rdfs:range r2r:Consumable .
+
+r2r:coversTravelEpisode a owl:ObjectProperty ;
+    rdfs:label "covers travel episode" ;
+    rdfs:domain r2r:OfferItem ;
+    rdfs:range r2r:TravelEpisode .
+
+r2r:hasOfferItem a owl:ObjectProperty ;
+    rdfs:label "has offer item" ;
+    rdfs:domain osdm:Offer ;
+    rdfs:range r2r:OfferItem .
+
+r2r:hasTransportationService a owl:ObjectProperty ;
+    rdfs:label "has transportation service" ;
+    rdfs:domain r2r:TravelEpisode ;
+    rdfs:range r2r:TransportationService .
+
+r2r:includesTravelEpisode a owl:ObjectProperty ;
+    rdfs:label "includes travel episode" ;
+    rdfs:domain osdm:Trip ;
+    rdfs:range r2r:TravelEpisode .
+
+r2r:inventoryAllocation a owl:ObjectProperty ;
+    rdfs:label "inventory allocation" ;
+    rdfs:domain r2r:TransportationService ;
+    rdfs:range r2r:InventoryAllocation .
+
+r2r:issue a oasis:Action,
+        owl:NamedIndividual .
+
+r2r:issuedBy a owl:ObjectProperty ;
+    rdfs:label "issued by" ;
+    rdfs:domain r2r:Voucher ;
+    rdfs:range tmorg:Organisation .
+
+r2r:issuedTo a owl:ObjectProperty ;
+    rdfs:label "issued to" ;
+    rdfs:domain r2r:Voucher ;
+    rdfs:range osdm:Passenger .
+
+r2r:operatedBy a owl:ObjectProperty ;
+    rdfs:label "operated by" ;
+    rdfs:domain r2r:TransportationService ;
+    rdfs:range tmorg:Operator .
+
+osdm:Price a owl:Class ;
+    rdfs:label "Price" .
+
+oasis:Action a owl:Class ;
+    rdfs:label "Action" .
+
+oasis:SmartContract a owl:Class ;
+    rdfs:label "Smart Contract" .
+
+tmorg:Operator a owl:Class ;
+    rdfs:label "Operator" ;
+    rdfs:subClassOf tmorg:Organisation .
+
+tmorg:Organisation a owl:Class ;
+    rdfs:label "Organisation" .
+
+osdm:Offer a owl:Class ;
+    rdfs:label "Offer" .
+
+osdm:Passenger a owl:Class ;
+    rdfs:label "Passenger" .
+
+osdm:Reservation a owl:Class ;
+    rdfs:label "Reservation" .
+
+osdm:Trip a owl:Class ;
+    rdfs:label "Trip" .
+
+r2r:Consumable a owl:Class ;
+    rdfs:label "Consumable" .
+
+r2r:InventoryAllocation a owl:Class ;
+    rdfs:label "Inventory Allocation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty r2r:quantity ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty r2r:quantity ],
+        r2r:Voucher .
+
+r2r:IncentiveSmartContract a owl:Class ;
+    rdfs:label "Incentive Smart Contract" ;
+    rdfs:subClassOf oasis:SmartContract .
+
+r2r:quantity a owl:DatatypeProperty ;
+    rdfs:label "quantity" ;
+    rdfs:range xsd:integer .
+
+r2r:TransportationService a owl:Class ;
+    rdfs:label "Transportation Service" .
+
+r2r:Voucher a owl:Class ;
+    rdfs:label "Voucher" .
+
+r2r:OfferItem a owl:Class ;
+    rdfs:label "Offer Item" .
+
+r2r:TravelEpisode a owl:Class ;
+    rdfs:label "Travel Episode" .
+

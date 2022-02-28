@@ -64,5 +64,7 @@ This section collects User Stories generated from the identified Use Cases.
 
 #### Facts and Competency Questions
 
+*Inputs*: use cases, user stories, data flows defined for the CbTSP and the Agreement Ledger module.
+
 Facts and Competency Questions are defined in the shared document: https://docs.google.com/spreadsheets/d/1rTRvpwsC0_AdPDcg5ng6kYwB4pdYM6s7GAZMlDUezXQ/edit?usp=sharing
 

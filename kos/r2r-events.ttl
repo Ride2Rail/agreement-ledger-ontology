@@ -1,0 +1,114 @@
+ @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix r2r: <http://www.owl-ontologies.com/r2r#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.owl-ontologies.com/skos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+skos: a owl:Ontology ;
+    dc:description "Ontology code created by Chowlk" .
+
+skos:broader a owl:ObjectProperty ;
+    rdfs:label "broader" .
+
+skos:hasTopConcept a owl:ObjectProperty ;
+    rdfs:label "has top concept" .
+
+skos:inScheme a owl:ObjectProperty ;
+    rdfs:label "in scheme" .
+
+skos:narrower a owl:ObjectProperty ;
+    rdfs:label "narrower" .
+
+r2r:RidesharingCancelledDriver a skos:Concept,
+        owl:NamedIndividual ;
+    skos:broader r2r:RidesharingCancelled ;
+    skos:definition "The booked ridesharing is cancelled by the driver"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:prefLabel "Ridesharing cancelled by driver"^^xsd:string .
+
+r2r:RidesharingCancelledPassenger a skos:Concept,
+        owl:NamedIndividual ;
+    skos:broader r2r:RidesharingCancelled ;
+    skos:definition "The booked ridesharing is cancelled by the passenger"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:prefLabel "Ridesharing cancelled by passenger"^^xsd:string .
+
+r2r:RidesharingCompleted a skos:Concept,
+        owl:NamedIndividual ;
+    skos:definition "The booked ridesharing is completed"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:prefLabel "Ridesharing completed"^^xsd:string .
+
+r2r:RidesharingDelayedDriver a skos:Concept,
+        owl:NamedIndividual ;
+    skos:broader r2r:RidesharingDelayed ;
+    skos:definition "The booked ridesharing is delayed because of the driver"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:prefLabel "Ridesharing delayed by driver"^^xsd:string .
+
+r2r:RidesharingDelayedPassenger a skos:Concept,
+        owl:NamedIndividual ;
+    skos:broader r2r:RidesharingDelayed ;
+    skos:definition "The booked ridesharing is delayed because of thee passenger"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:prefLabel "Ridesharing delayed by passenger"^^xsd:string .
+
+r2r:RidesharingNoShowDriver a skos:Concept,
+        owl:NamedIndividual ;
+    skos:broader r2r:RidesharingNoShow ;
+    skos:definition "The booked ridesharing can not be performed because the driver didn't show"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:prefLabel "Ridesharing no show by driver"^^xsd:string .
+
+r2r:RidesharingNoShowPassenger a skos:Concept,
+        owl:NamedIndividual ;
+    skos:broader r2r:RidesharingNoShow ;
+    skos:definition "The booked ridesharing can not be performed because the passenger didn't show"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:prefLabel "Ridesharing no show by passenger"^^xsd:string .
+
+r2r:RidesharingStarted a skos:Concept,
+        owl:NamedIndividual ;
+    skos:definition "The booked ridesharing is started"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:prefLabel "Ridesharing started"^^xsd:string .
+
+skos:ConceptScheme a owl:Class ;
+    rdfs:label "Concept Scheme" .
+
+r2r:RidesharingCancelled a skos:Concept,
+        owl:NamedIndividual ;
+    skos:definition "The booked ridesharing is cancelled"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:narrower r2r:RidesharingCancelledDriver,
+        r2r:RidesharingCancelledPassenger ;
+    skos:prefLabel "Ridesharing cancelled"^^xsd:string .
+
+r2r:RidesharingDelayed a skos:Concept,
+        owl:NamedIndividual ;
+    skos:definition "The booked ridesharing is delayed"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:narrower r2r:RidesharingDelayedDriver,
+        r2r:RidesharingDelayedPassenger ;
+    skos:prefLabel "Ridesharing delayed"^^xsd:string .
+
+r2r:RidesharingNoShow a skos:Concept,
+        owl:NamedIndividual ;
+    skos:definition "The booked ridesharing can not be performed because one of the involved actors didn't arrive"^^xsd:string ;
+    skos:inScheme r2r:RidesharingBookingEvent ;
+    skos:narrower r2r:RidesharingNoShowDriver,
+        r2r:RidesharingNoShowPassenger ;
+    skos:prefLabel "Ridesharing no show"^^xsd:string .
+
+r2r:RidesharingBookingEvent a skos:ConceptScheme,
+        owl:NamedIndividual ;
+    skos:hasTopConcept r2r:RidesharingCancelled,
+        r2r:RidesharingCompleted,
+        r2r:RidesharingDelayed,
+        r2r:RidesharingNoShow,
+        r2r:RidesharingStarted .
+
+skos:Concept a owl:Class ;
+    rdfs:label "Concept" .
+
