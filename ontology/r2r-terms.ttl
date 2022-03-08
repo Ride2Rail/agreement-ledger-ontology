@@ -1,193 +1,334 @@
- @prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix oasis: <http://www.dmi.unict.it/oasis.owl#> .
-@prefix osdm: <https://w3id.org/mobility/osdm#> .
+@prefix : <https://ride2rail.eu/onto/ledger#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix r2r: <https://w3id.org/r2r#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix tmorg: <http://www.owl-ontologies.com/tmorg#> .
+@prefix r2r: <https://ride2rail.eu/onto/ledger#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix osdm: <https://w3id.org/osdm/distribution#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix oasis: <http://www.dmi.unict.it/oasis.owl#> .
+@prefix tmorg: <https://w3id.org/transmodel/organisations#> .
+@base <https://ride2rail.eu/onto/ledger#> .
 
-osdm:confirmedPrice a owl:ObjectProperty ;
-    rdfs:label "confirmed price" ;
-    rdfs:domain r2r:OfferItem ;
-    rdfs:range osdm:Price .
+<https://ride2rail.eu/onto/ledger#> rdf:type owl:Ontology ;
+                                     dc:creator "Mario Scrocca" ;
+                                     dc:description "Ontology describing the basic terms introduced by Ride2Rail for the modelling of smart contracts in the ledger module." ;
+                                     dc:title "Ride2Rail Agreement Ledger Ontology" ;
+                                     owl:versionInfo "1.0.0" .
 
-osdm:passengers a owl:ObjectProperty ;
-    rdfs:label "passengers" ;
-    rdfs:domain r2r:OfferItem ;
-    rdfs:range osdm:Passenger .
+#################################################################
+#    Annotation properties
+#################################################################
 
-osdm:reservations a owl:ObjectProperty ;
-    rdfs:label "reservations" ;
-    rdfs:domain r2r:OfferItem ;
-    rdfs:range osdm:Reservation .
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
 
-osdm:trip a owl:ObjectProperty ;
-    rdfs:label "trip" ;
-    rdfs:domain osdm:Offer ;
-    rdfs:range osdm:Trip .
 
-r2r: a owl:Ontology ;
-    dc:creator "Mario Scrocca" ;
-    dc:description "Ontology code created by Chowlk" ;
-    dc:title "Ride2Rail Agreement Ledger Ontology" ;
-    owl:versionInfo "1.0.0" .
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
 
-r2r:ContinuousLeg a owl:Class ;
-    rdfs:label "Continuous Leg" ;
-    rdfs:subClassOf r2r:TravelEpisode .
 
-r2r:Driver a owl:Class ;
-    rdfs:label "Driver" ;
-    rdfs:subClassOf tmorg:Operator .
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
 
-r2r:InventoryReservation a owl:Class ;
-    rdfs:label "Inventory Reservation" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty r2r:quantity ],
-        osdm:Reservation .
 
-r2r:MultimodalDiscountIncentive a owl:NamedIndividual,
-        r2r:IncentiveSmartContract .
+#################################################################
+#    Object Properties
+#################################################################
 
-r2r:MultimodalDiscountIncentive3 a owl:NamedIndividual,
-        r2r:IncentiveSmartContract .
+###  https://ride2rail.eu/onto/ledger#consumable
+r2r:consumable rdf:type owl:ObjectProperty ;
+               rdfs:domain r2r:InventoryAllocation ;
+               rdfs:range r2r:Consumable ;
+               rdfs:label "consumable" .
 
-r2r:Ride a owl:Class ;
-    rdfs:label "Ride" ;
-    rdfs:subClassOf r2r:TransportationService .
 
-r2r:RideWithOtherPassengersIncentive a owl:NamedIndividual,
-        r2r:IncentiveSmartContract .
+###  https://ride2rail.eu/onto/ledger#coversTravelEpisode
+r2r:coversTravelEpisode rdf:type owl:ObjectProperty ;
+                        rdfs:domain r2r:OfferItem ;
+                        rdfs:range r2r:TravelEpisode ;
+                        rdfs:label "covers travel episode" .
 
-r2r:RidesharingBooking a oasis:SmartContract,
-        owl:NamedIndividual .
 
-r2r:RidesharingLeg a owl:Class ;
-    rdfs:label "Ridesharing Leg" ;
-    rdfs:subClassOf r2r:TravelEpisode .
+###  https://ride2rail.eu/onto/ledger#hasOfferItem
+r2r:hasOfferItem rdf:type owl:ObjectProperty ;
+                 rdfs:domain osdm:Offer ;
+                 rdfs:range r2r:OfferItem ;
+                 rdfs:label "has offer item" .
 
-r2r:SeatUpgradeVoucher a owl:Class ;
-    rdfs:label "Seat Upgrade Voucher" ;
-    rdfs:subClassOf r2r:Voucher .
 
-r2r:Seats a owl:NamedIndividual,
-        r2r:Consumable .
+###  https://ride2rail.eu/onto/ledger#hasTransportationService
+r2r:hasTransportationService rdf:type owl:ObjectProperty ;
+                             rdfs:domain r2r:TravelEpisode ;
+                             rdfs:range r2r:TransportationService ;
+                             rdfs:label "has transportation service" .
 
-r2r:TimedLeg a owl:Class ;
-    rdfs:label "Timed Leg" ;
-    rdfs:subClassOf r2r:TravelEpisode .
 
-r2r:book a oasis:Action,
-        owl:NamedIndividual .
+###  https://ride2rail.eu/onto/ledger#includesTravelEpisode
+r2r:includesTravelEpisode rdf:type owl:ObjectProperty ;
+                          rdfs:domain osdm:Trip ;
+                          rdfs:range r2r:TravelEpisode ;
+                          rdfs:label "includes travel episode" .
 
-r2r:consumable a owl:ObjectProperty ;
-    rdfs:label "consumable" ;
-    rdfs:domain r2r:InventoryAllocation ;
-    rdfs:range r2r:Consumable .
 
-r2r:coversTravelEpisode a owl:ObjectProperty ;
-    rdfs:label "covers travel episode" ;
-    rdfs:domain r2r:OfferItem ;
-    rdfs:range r2r:TravelEpisode .
+###  https://ride2rail.eu/onto/ledger#inventoryAllocation
+r2r:inventoryAllocation rdf:type owl:ObjectProperty ;
+                        rdfs:domain r2r:TransportationService ;
+                        rdfs:range r2r:InventoryAllocation ;
+                        rdfs:label "inventory allocation" .
 
-r2r:hasOfferItem a owl:ObjectProperty ;
-    rdfs:label "has offer item" ;
-    rdfs:domain osdm:Offer ;
-    rdfs:range r2r:OfferItem .
 
-r2r:hasTransportationService a owl:ObjectProperty ;
-    rdfs:label "has transportation service" ;
-    rdfs:domain r2r:TravelEpisode ;
-    rdfs:range r2r:TransportationService .
+###  https://ride2rail.eu/onto/ledger#issuedBy
+r2r:issuedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain r2r:Voucher ;
+             rdfs:range tmorg:Organisation ;
+             rdfs:label "issued by" .
 
-r2r:includesTravelEpisode a owl:ObjectProperty ;
-    rdfs:label "includes travel episode" ;
-    rdfs:domain osdm:Trip ;
-    rdfs:range r2r:TravelEpisode .
 
-r2r:inventoryAllocation a owl:ObjectProperty ;
-    rdfs:label "inventory allocation" ;
-    rdfs:domain r2r:TransportationService ;
-    rdfs:range r2r:InventoryAllocation .
+###  https://ride2rail.eu/onto/ledger#issuedTo
+r2r:issuedTo rdf:type owl:ObjectProperty ;
+             rdfs:domain r2r:Voucher ;
+             rdfs:range osdm:Passenger ;
+             rdfs:label "issued to" .
 
-r2r:issue a oasis:Action,
-        owl:NamedIndividual .
 
-r2r:issuedBy a owl:ObjectProperty ;
-    rdfs:label "issued by" ;
-    rdfs:domain r2r:Voucher ;
-    rdfs:range tmorg:Organisation .
+###  https://ride2rail.eu/onto/ledger#operatedBy
+r2r:operatedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain r2r:TransportationService ;
+               rdfs:range tmorg:Operator ;
+               rdfs:label "operated by" .
 
-r2r:issuedTo a owl:ObjectProperty ;
-    rdfs:label "issued to" ;
-    rdfs:domain r2r:Voucher ;
-    rdfs:range osdm:Passenger .
 
-r2r:operatedBy a owl:ObjectProperty ;
-    rdfs:label "operated by" ;
-    rdfs:domain r2r:TransportationService ;
-    rdfs:range tmorg:Operator .
+###  https://w3id.org/osdm/distribution#confirmedPrice
+osdm:confirmedPrice rdf:type owl:ObjectProperty ;
+                    rdfs:domain r2r:OfferItem ;
+                    rdfs:range osdm:Price ;
+                    rdfs:label "confirmed price" .
 
-osdm:Price a owl:Class ;
-    rdfs:label "Price" .
 
-oasis:Action a owl:Class ;
-    rdfs:label "Action" .
+###  https://w3id.org/osdm/distribution#passengers
+osdm:passengers rdf:type owl:ObjectProperty ;
+                rdfs:domain r2r:OfferItem ;
+                rdfs:range osdm:Passenger ;
+                rdfs:label "passengers" .
 
-oasis:SmartContract a owl:Class ;
-    rdfs:label "Smart Contract" .
 
-tmorg:Operator a owl:Class ;
-    rdfs:label "Operator" ;
-    rdfs:subClassOf tmorg:Organisation .
+###  https://w3id.org/osdm/distribution#reservations
+osdm:reservations rdf:type owl:ObjectProperty ;
+                  rdfs:domain r2r:OfferItem ;
+                  rdfs:range osdm:Reservation ;
+                  rdfs:label "reservations" .
 
-tmorg:Organisation a owl:Class ;
-    rdfs:label "Organisation" .
 
-osdm:Offer a owl:Class ;
-    rdfs:label "Offer" .
+###  https://w3id.org/osdm/distribution#trip
+osdm:trip rdf:type owl:ObjectProperty ;
+          rdfs:domain osdm:Offer ;
+          rdfs:range osdm:Trip ;
+          rdfs:label "trip" .
 
-osdm:Passenger a owl:Class ;
-    rdfs:label "Passenger" .
 
-osdm:Reservation a owl:Class ;
-    rdfs:label "Reservation" .
+#################################################################
+#    Data properties
+#################################################################
 
-osdm:Trip a owl:Class ;
-    rdfs:label "Trip" .
+###  https://ride2rail.eu/onto/ledger#discountPercentage
+r2r:discountPercentage rdf:type owl:DatatypeProperty ;
+                       rdfs:range xsd:integer ;
+                       rdfs:label "discount percentage" .
 
-r2r:Consumable a owl:Class ;
-    rdfs:label "Consumable" .
 
-r2r:InventoryAllocation a owl:Class ;
-    rdfs:label "Inventory Allocation" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty r2r:quantity ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty r2r:quantity ],
-        r2r:Voucher .
+###  https://ride2rail.eu/onto/ledger#quantity
+r2r:quantity rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:integer ;
+             rdfs:label "quantity" .
 
-r2r:IncentiveSmartContract a owl:Class ;
-    rdfs:label "Incentive Smart Contract" ;
-    rdfs:subClassOf oasis:SmartContract .
 
-r2r:quantity a owl:DatatypeProperty ;
-    rdfs:label "quantity" ;
-    rdfs:range xsd:integer .
+#################################################################
+#    Classes
+#################################################################
 
-r2r:TransportationService a owl:Class ;
-    rdfs:label "Transportation Service" .
+###  http://www.dmi.unict.it/oasis.owl#Action
+oasis:Action rdf:type owl:Class ;
+             rdfs:label "Action" .
 
-r2r:Voucher a owl:Class ;
-    rdfs:label "Voucher" .
 
-r2r:OfferItem a owl:Class ;
-    rdfs:label "Offer Item" .
+###  http://www.dmi.unict.it/oasis.owl#SmartContract
+oasis:SmartContract rdf:type owl:Class ;
+                    rdfs:label "Smart Contract" .
 
-r2r:TravelEpisode a owl:Class ;
-    rdfs:label "Travel Episode" .
 
+###  https://ride2rail.eu/onto/ledger#Consumable
+r2r:Consumable rdf:type owl:Class ;
+               rdfs:comment "A type of entity that can be listed in an InventoryAllocation and can be consumed performing a InventoryAllocation." ;
+               rdfs:label "Consumable" .
+
+
+###  https://ride2rail.eu/onto/ledger#ContinuousLeg
+r2r:ContinuousLeg rdf:type owl:Class ;
+                  rdfs:subClassOf r2r:TravelEpisode ;
+                  rdfs:label "Continuous Leg" .
+
+
+###  https://ride2rail.eu/onto/ledger#DiscountVoucher
+r2r:DiscountVoucher rdf:type owl:Class ;
+                    rdfs:subClassOf r2r:Voucher ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty r2r:discountPercentage ;
+                                      owl:allValuesFrom xsd:integer
+                                    ] ;
+                    rdfs:label "Discount Voucher" .
+
+
+###  https://ride2rail.eu/onto/ledger#Driver
+r2r:Driver rdf:type owl:Class ;
+           rdfs:subClassOf tmorg:Operator ;
+           rdfs:label "Driver" .
+
+
+###  https://ride2rail.eu/onto/ledger#IncentiveSmartContract
+r2r:IncentiveSmartContract rdf:type owl:Class ;
+                           rdfs:subClassOf oasis:SmartContract ;
+                           rdfs:label "Incentive Smart Contract" .
+
+
+###  https://ride2rail.eu/onto/ledger#InventoryAllocation
+r2r:InventoryAllocation rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                          owl:onProperty r2r:quantity ;
+                                          owl:allValuesFrom xsd:integer
+                                        ] ;
+                        rdfs:label "Inventory Allocation" .
+
+
+###  https://ride2rail.eu/onto/ledger#InventoryReservation
+r2r:InventoryReservation rdf:type owl:Class ;
+                         rdfs:subClassOf osdm:Reservation ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty r2r:quantity ;
+                                           owl:allValuesFrom xsd:integer
+                                         ] ;
+                         rdfs:label "Inventory Reservation" .
+
+
+###  https://ride2rail.eu/onto/ledger#OfferItem
+r2r:OfferItem rdf:type owl:Class ;
+              rdfs:label "Offer Item" .
+
+
+###  https://ride2rail.eu/onto/ledger#Ride
+r2r:Ride rdf:type owl:Class ;
+         rdfs:subClassOf r2r:TransportationService ;
+         rdfs:label "Ride" .
+
+
+###  https://ride2rail.eu/onto/ledger#RidesharingLeg
+r2r:RidesharingLeg rdf:type owl:Class ;
+                   rdfs:subClassOf r2r:TravelEpisode ;
+                   rdfs:label "Ridesharing Leg" .
+
+
+###  https://ride2rail.eu/onto/ledger#SeatUpgradeVoucher
+r2r:SeatUpgradeVoucher rdf:type owl:Class ;
+                       rdfs:subClassOf r2r:Voucher ;
+                       rdfs:label "Seat Upgrade Voucher" .
+
+
+###  https://ride2rail.eu/onto/ledger#TimedLeg
+r2r:TimedLeg rdf:type owl:Class ;
+             rdfs:subClassOf r2r:TravelEpisode ;
+             rdfs:label "Timed Leg" .
+
+
+###  https://ride2rail.eu/onto/ledger#TransportationService
+r2r:TransportationService rdf:type owl:Class ;
+                          rdfs:label "Transportation Service" .
+
+
+###  https://ride2rail.eu/onto/ledger#TravelEpisode
+r2r:TravelEpisode rdf:type owl:Class ;
+                  rdfs:label "Travel Episode" .
+
+
+###  https://ride2rail.eu/onto/ledger#Voucher
+r2r:Voucher rdf:type owl:Class ;
+            rdfs:label "Voucher" .
+
+
+###  https://w3id.org/osdm/distribution#Offer
+osdm:Offer rdf:type owl:Class ;
+           rdfs:comment "A portion of an offer, which is provided by a single travel service provider." ;
+           rdfs:label "Offer" .
+
+
+###  https://w3id.org/osdm/distribution#Passenger
+osdm:Passenger rdf:type owl:Class ;
+               rdfs:label "Passenger" .
+
+
+###  https://w3id.org/osdm/distribution#Price
+osdm:Price rdf:type owl:Class ;
+           rdfs:label "Price" .
+
+
+###  https://w3id.org/osdm/distribution#Reservation
+osdm:Reservation rdf:type owl:Class ;
+                 rdfs:label "Reservation" .
+
+
+###  https://w3id.org/osdm/distribution#Trip
+osdm:Trip rdf:type owl:Class ;
+          rdfs:label "Trip" .
+
+
+###  https://w3id.org/transmodel/organisations#Operator
+tmorg:Operator rdf:type owl:Class ;
+               rdfs:subClassOf tmorg:Organisation ;
+               rdfs:label "Operator" .
+
+
+###  https://w3id.org/transmodel/organisations#Organisation
+tmorg:Organisation rdf:type owl:Class ;
+                   rdfs:label "Organisation" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://ride2rail.eu/onto/ledger#MultimodalDiscountIncentive
+r2r:MultimodalDiscountIncentive rdf:type owl:NamedIndividual ,
+                                         r2r:IncentiveSmartContract .
+
+
+###  https://ride2rail.eu/onto/ledger#MultimodalDiscountIncentive3
+r2r:MultimodalDiscountIncentive3 rdf:type owl:NamedIndividual ,
+                                          r2r:IncentiveSmartContract .
+
+
+###  https://ride2rail.eu/onto/ledger#RideWithOtherPassengersIncentive
+r2r:RideWithOtherPassengersIncentive rdf:type owl:NamedIndividual ,
+                                              r2r:IncentiveSmartContract .
+
+
+###  https://ride2rail.eu/onto/ledger#RidesharingBooking
+r2r:RidesharingBooking rdf:type owl:NamedIndividual ,
+                                oasis:SmartContract .
+
+
+###  https://ride2rail.eu/onto/ledger#Seats
+r2r:Seats rdf:type owl:NamedIndividual ,
+                   r2r:Consumable .
+
+
+###  https://ride2rail.eu/onto/ledger#book
+r2r:book rdf:type owl:NamedIndividual ,
+                  oasis:Action .
+
+
+###  https://ride2rail.eu/onto/ledger#issue
+r2r:issue rdf:type owl:NamedIndividual ,
+                   oasis:Action .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
