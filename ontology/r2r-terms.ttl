@@ -12,7 +12,7 @@
 @base <https://ride2rail.eu/onto/ledger#> .
 
 <https://ride2rail.eu/onto/ledger#> rdf:type owl:Ontology ;
-                                     dc:creator "Mario Scrocca" ;
+                                     dc:creator "Mario Scrocca (Cefriel)" ;
                                      dc:description "Ontology describing the basic terms introduced by Ride2Rail for the modelling of smart contracts in the ledger module." ;
                                      dc:title "Ride2Rail Agreement Ledger Ontology" ;
                                      owl:versionInfo "1.0.0" .
