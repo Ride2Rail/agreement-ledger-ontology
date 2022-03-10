@@ -8,6 +8,26 @@
 @prefix tmorg: <https://w3id.org/mobility/transmodel/organisations#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 
+ag:RidesharingBooking rdf:type owl:NamedIndividual ,
+                                oasis:SmartContract ;
+                       rdfs:comment "An agreement between a Driver and a Passenger for a specific Ride offered by the Driver and booked by the Passenger." ;
+                       rdfs:label "Ridesharing booking" .
+
+ag:MultimodalDiscountIncentive rdf:type owl:NamedIndividual ,
+                                         r2r:IncentiveSmartContract ;
+                                rdfs:comment "An Incentive promoting multimodal trips through a DiscountVoucher." ;
+                                rdfs:label "Multimodal discount incentive" .
+
+ag:MultimodalDiscountIncentive3 rdf:type owl:NamedIndividual ,
+                                          r2r:IncentiveSmartContract ;
+                                 rdfs:comment "An Incentive promoting multiple multimodal trips (at least three) through a DiscountVoucher." ;
+                                 rdfs:label "Multimodal discount incentive three times" .
+
+ag:RideWithOtherPassengersIncentive rdf:type owl:NamedIndividual ,
+                                              r2r:IncentiveSmartContract ;
+                                     rdfs:comment "An Incentive promoting the booking of Rides already involving other Passengers." ;
+                                     rdfs:label "Ridesharing with other passengers incentive" .
+
 ag:MDICBObject  a              oasis:ConditionalObject , owl:NamedIndividual ;
         oasis:refersExactlyTo  ag:OfferTemplateEntry .
 

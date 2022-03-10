@@ -303,33 +303,6 @@ tmorg:Organisation rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  https://ride2rail.eu/onto/ledger#MultimodalDiscountIncentive
-r2r:MultimodalDiscountIncentive rdf:type owl:NamedIndividual ,
-                                         r2r:IncentiveSmartContract ;
-                                rdfs:comment "An Incentive promoting multimodal trips through a DiscountVoucher." ;
-                                rdfs:label "Multimodal discount incentive" .
-
-
-###  https://ride2rail.eu/onto/ledger#MultimodalDiscountIncentive3
-r2r:MultimodalDiscountIncentive3 rdf:type owl:NamedIndividual ,
-                                          r2r:IncentiveSmartContract ;
-                                 rdfs:comment "An Incentive promoting multiple multimodal trips (at least three) through a DiscountVoucher." ;
-                                 rdfs:label "Multimodal discount incentive three times" .
-
-
-###  https://ride2rail.eu/onto/ledger#RideWithOtherPassengersIncentive
-r2r:RideWithOtherPassengersIncentive rdf:type owl:NamedIndividual ,
-                                              r2r:IncentiveSmartContract ;
-                                     rdfs:comment "An Incentive promoting the booking of Rides already involving other Passengers." ;
-                                     rdfs:label "Ridesharing with other passengers incentive" .
-
-
-###  https://ride2rail.eu/onto/ledger#RidesharingBooking
-r2r:RidesharingBooking rdf:type owl:NamedIndividual ,
-                                oasis:SmartContract ;
-                       rdfs:comment "An agreement between a Driver and a Passenger for a specific Ride offered by the Driver and booked by the Passenger." ;
-                       rdfs:label "Ridesharing booking" .
-
 
 ###  https://ride2rail.eu/onto/ledger#Seats
 r2r:Seats rdf:type owl:NamedIndividual ,
