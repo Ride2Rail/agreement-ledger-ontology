@@ -8,58 +8,82 @@
 @prefix tmorg: <https://w3id.org/mobility/transmodel/organisations#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 
-ag:RidesharingBooking rdf:type owl:NamedIndividual ,
+ag:RidesharingBooking a owl:NamedIndividual ,
                                 oasis:SmartContract ;
                        rdfs:comment "An agreement between a Driver and a Passenger for a specific Ride offered by the Driver and booked by the Passenger." ;
                        rdfs:label "Ridesharing booking" .
 
-ag:MultimodalDiscountIncentive rdf:type owl:NamedIndividual ,
+ag:MultimodalDiscountIncentive a owl:NamedIndividual ,
                                          r2r:IncentiveSmartContract ;
                                 rdfs:comment "An Incentive promoting multimodal trips through a DiscountVoucher." ;
                                 rdfs:label "Multimodal discount incentive" .
 
-ag:MultimodalDiscountIncentive3 rdf:type owl:NamedIndividual ,
+ag:MultimodalDiscountIncentive3 a owl:NamedIndividual ,
                                           r2r:IncentiveSmartContract ;
                                  rdfs:comment "An Incentive promoting multiple multimodal trips (at least three) through a DiscountVoucher." ;
                                  rdfs:label "Multimodal discount incentive three times" .
 
-ag:RideWithOtherPassengersIncentive rdf:type owl:NamedIndividual ,
+ag:RideWithOtherPassengersIncentive a owl:NamedIndividual ,
                                               r2r:IncentiveSmartContract ;
                                      rdfs:comment "An Incentive promoting the booking of Rides already involving other Passengers." ;
                                      rdfs:label "Ridesharing with other passengers incentive" .
 
-ag:MDICBObject  a              oasis:ConditionalObject , owl:NamedIndividual ;
-        oasis:refersExactlyTo  ag:OfferTemplateEntry .
+ag:MDI3OfferTempEntry
+        a          oasis:EntryTemplate , owl:NamedIndividual , osdm:Offer ;
+        osdm:trip  ag:MDI3TripTempEntry .
 
-ag:PassengerTemplateEntry
-        a       oasis:EntryTemplate , owl:NamedIndividual , osdm:Passenger .
+ag:MDICBObject  a              oasis:ConditionalObject , owl:NamedIndividual ;
+        oasis:refersExactlyTo  ag:MDIOfferTempEntry .
+
+ag:MDI3CBOperator  a           oasis:ConditionalOperator , owl:NamedIndividual ;
+        oasis:refersExactlyTo  r2r:book .
+
+ag:RWOPCBOperator  a           oasis:ConditionalOperator , owl:NamedIndividual ;
+        oasis:refersExactlyTo  r2r:book .
+
+ag:RWOPRideTempEntry  a  oasis:EntryTemplate , owl:NamedIndividual , r2r:Ride .
+
+ag:RWOPPassengerEntry
+        a                    oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:RWOPPassengerTempEntry .
+
+ag:MDI3TSPTempEntry  a  oasis:EntryTemplate , owl:NamedIndividual , tmorg:Operator .
 
 ag:RWOPCBSubject  a          oasis:ConditionalSubject , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:PassengerTemplateEntry .
+        oasis:refersAsNewTo  ag:RWOPPassengerTempEntry .
 
 ag:MDI3CBSubject  a          oasis:ConditionalSubject , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:PassengerTemplateEntry .
+        oasis:refersAsNewTo  ag:MDI3PassengerTempEntry .
+
+ag:MDI3RideLegTempEntry
+        a       oasis:EntryTemplate , owl:NamedIndividual , r2r:RidesharingLeg .
 
 ag:RWOPCBOAtom  a                     oasis:ConditionalBodyAtom , owl:NamedIndividual ;
         oasis:hasConditionalObject    ag:RWOPCBOObject ;
         oasis:hasConditionalOperator  ag:RWOPCBOOperator ;
         oasis:hasConditionalSubject   ag:RWOPCBOSubject .
 
-ag:MDI3ConditionalBody
-        a                             oasis:ConditionalBody , owl:NamedIndividual ;
-        oasis:hasConditionalBodyAtom  ag:MDI3CBAtom .
-
 ag:MDI3CHAtom  a                      oasis:ConditionalHeadAtom , owl:NamedIndividual ;
         oasis:hasConditionalObject    ag:MDI3CHObject ;
         oasis:hasConditionalOperator  ag:MDI3CHOperator ;
         oasis:hasConditionalSubject   ag:MDI3CHSubject .
+
+ag:MDI3ConditionalBody
+        a                             oasis:ConditionalBody , owl:NamedIndividual ;
+        oasis:hasConditionalBodyAtom  ag:MDI3CBAtom .
+
+ag:RBSeatReservationTempEntry
+        a       oasis:EntryTemplate , owl:NamedIndividual , r2r:InventoryReservation .
+
+ag:RBDriverEntry  a          oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:RBDriverTempEntry .
 
 ag:RWOPCHOperator  a           oasis:ConditionalOperator , owl:NamedIndividual ;
         oasis:refersExactlyTo  r2r:issue .
 
 ag:MDI3CBAtom  a                      oasis:ConditionalBodyAtom , owl:NamedIndividual ;
         oasis:hasConditionalObject    ag:MDI3CBObject ;
-        oasis:hasConditionalOperator  ag:MDICBOperator ;
+        oasis:hasConditionalOperator  ag:MDI3CBOperator ;
         oasis:hasConditionalOperatorArgument
                 ag:MDI3CBArgument ;
         oasis:hasConditionalSubject   ag:MDI3CBSubject .
@@ -69,19 +93,16 @@ ag:RWOPCBOOperator  a          oasis:ConditionalOperator , owl:NamedIndividual ;
 
 ag:SeatVoucherTemplateEntry
         a             owl:NamedIndividual , r2r:SeatUpgradeVoucher ;
-        r2r:issuedBy  ag:TSPTemplateEntry ;
-        r2r:issuedTo  ag:PassengerTemplateEntry .
-
-ag:TripTemplateEntry  a            owl:NamedIndividual , osdm:Trip ;
-        r2r:includesTravelEpisode  r2r:RideLegTemplateEntry , ag:TripLegTemplateEntry , ag:RideLegTemplateEntry .
+        r2r:issuedBy  ag:RWOPTSPTempEntry ;
+        r2r:issuedTo  ag:RWOPPassengerTempEntry .
 
 ag:threeTimes  a  oasis:OperatorArgument , owl:NamedIndividual .
 
+ag:MDI3TSPEntry  a           oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:MDI3TSPTempEntry .
+
 ag:MDI3Conditionals  a        oasis:ConditionalSet , owl:NamedIndividual ;
         oasis:hasConditional  ag:MDI3Condition .
-
-ag:PriceTemplateEntry
-        a       oasis:EntryTemplate , owl:NamedIndividual , osdm:Price .
 
 ag:RWOPCondition  a               oasis:Conditional , owl:NamedIndividual ;
         oasis:hasConditionalBody  ag:RWOPConditionalBody ;
@@ -91,27 +112,42 @@ ag:MDI3Condition  a               oasis:Conditional , owl:NamedIndividual ;
         oasis:hasConditionalBody  ag:MDI3ConditionalBody ;
         oasis:hasConditionalHead  ag:MDI3ConditionalHead .
 
-ag:OfferItemEntry  a         oasis:SmartContractEntryValue , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:OfferItemTemplateEntry .
+ag:MDIPassengerEntry  a      oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:MDIPassengerTempEntry .
+
+ag:MDITripTempEntry  a             owl:NamedIndividual , osdm:Trip ;
+        r2r:includesTravelEpisode  ag:MDIRideLegTempEntry , ag:MDITripLegTempEntry .
 
 ag:MDIConditionals  a         oasis:ConditionalSet , owl:NamedIndividual ;
         oasis:hasConditional  ag:MDICondition .
 
-ag:PassengerEntry  a         oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:PassengerTemplateEntry .
+ag:RBPassengerTempEntry
+        a       oasis:EntryTemplate , owl:NamedIndividual , osdm:Passenger .
 
-ag:DriverTemplateEntry
-        a       oasis:EntryTemplate , owl:NamedIndividual , r2r:Driver .
+ag:MDI3TripTempEntry  a            owl:NamedIndividual , osdm:Trip ;
+        r2r:includesTravelEpisode  r2r:MDI3RideLegTempEntry , ag:MDI3TripLegTempEntry .
 
-ag:RideTemplateEntry  a          oasis:EntryTemplate , owl:NamedIndividual , r2r:Ride ;
-        r2r:inventoryAllocation  ag:InventoryAllocationTemplateEntry ;
-        r2r:operatedBy           ag:DriverTemplateEntry .
+ag:RWOPOtherPassengerTempEntry
+        a                  oasis:EntryTemplate , owl:NamedIndividual , osdm:Passenger ;
+        owl:differentFrom  ag:RWOPPassengerTempEntry .
+
+ag:RWOPTSPEntry  a           oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:RWOPTSPTempEntry .
+
+ag:RBOfferItemEntry  a       oasis:SmartContractEntryValue , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:RBOfferItemTempEntry .
+
+ag:RBRideTempEntry  a            oasis:EntryTemplate , owl:NamedIndividual , r2r:Ride ;
+        r2r:inventoryAllocation  ag:RBInventoryAllocationTempEntry ;
+        r2r:operatedBy           ag:RBDriverTempEntry .
+
+ag:RBPriceTempEntry  a  oasis:EntryTemplate , owl:NamedIndividual , osdm:Price .
 
 ag:20PercDiscountVoucherTemplateEntry
         a                       owl:NamedIndividual , r2r:DiscountVoucher ;
         r2r:discountPercentage  20 ;
-        r2r:issuedBy            ag:TSPTemplateEntry ;
-        r2r:issuedTo            ag:PassengerTemplateEntry .
+        r2r:issuedBy            ag:MDI3TSPTempEntry ;
+        r2r:issuedTo            ag:MDI3PassengerTempEntry .
 
 ag:MDICHObject  a            oasis:ConditionalObject , owl:NamedIndividual ;
         oasis:refersAsNewTo  ag:10PercDiscountVoucherTemplateEntry .
@@ -119,54 +155,59 @@ ag:MDICHObject  a            oasis:ConditionalObject , owl:NamedIndividual ;
 ag:RideWithOtherPassengersIncentive
         a                        oasis:SmartContract , owl:NamedIndividual ;
         oasis:consistsOfSmartContractEntry
-                r2r:PassengerEntry , r2r:TSPEntry ;
+                ag:RWOPPassengerEntry , ag:RWOPTSPEntry ;
         oasis:hasConditionalSet  ag:RWOPConditionals .
 
+ag:RBInventoryAllocationTempEntry
+        a               oasis:EntryTemplate , owl:NamedIndividual , r2r:InventoryAllocation ;
+        r2r:consumable  r2r:Seats .
+
+ag:RWOPTSPTempEntry  a  oasis:EntryTemplate , owl:NamedIndividual , tmorg:Operator .
+
+ag:RBDriverTempEntry  a  oasis:EntryTemplate , owl:NamedIndividual , r2r:Driver .
+
 ag:RWOPCHSubject  a          oasis:ConditionalSubject , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:TSPTemplateEntry .
+        oasis:refersAsNewTo  ag:RWOPTSPTempEntry .
 
 ag:MDI3CHSubject  a          oasis:ConditionalSubject , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:TSPTemplateEntry .
+        oasis:refersAsNewTo  ag:MDI3TSPTempEntry .
 
-ag:RWOPCBOperator  a           owl:NamedIndividual ;
-        oasis:refersExactlyTo  r2r:book .
+ag:MDIRideLegTempEntry
+        a       oasis:EntryTemplate , owl:NamedIndividual , r2r:RidesharingLeg .
 
-ag:TSPEntry  a               oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:TSPTemplateEntry .
-
-ag:SeatReservationTemplateEntry
-        a       oasis:EntryTemplate , owl:NamedIndividual , r2r:InventoryReservation .
+ag:MDI3TripLegTempEntry
+        a                  oasis:EntryTemplate , owl:NamedIndividual , r2r:TravelEpisode ;
+        owl:differentFrom  r2r:MDI3RideLegTempEntry ;
+        r2r:operatedBy     ag:MDI3TSPTempEntry .
 
 ag:MDICBSubject  a           oasis:ConditionalSubject , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:PassengerTemplateEntry .
+        oasis:refersAsNewTo  ag:MDIPassengerTempEntry .
 
 ag:RWOPCBObject  a           oasis:ConditionalObject , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:RideTemplateEntry .
+        oasis:refersAsNewTo  ag:RWOPRideTempEntry .
+
+ag:MDIOfferTempEntry  a  oasis:EntryTemplate , owl:NamedIndividual , osdm:Offer ;
+        osdm:trip  ag:MDITripTempEntry .
 
 ag:RWOPCHAtom  a                      oasis:ConditionalHeadAtom , owl:NamedIndividual ;
         oasis:hasConditionalObject    ag:RWOPCHObject ;
         oasis:hasConditionalOperator  ag:RWOPCHOperator ;
         oasis:hasConditionalSubject   ag:RWOPCHSubject .
 
-ag:DriverEntry  a            oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:DriverTemplateEntry .
-
 ag:RWOPCBAtom  a                      oasis:ConditionalBodyAtom , owl:NamedIndividual ;
         oasis:hasConditionalObject    ag:RWOPCBObject ;
-        oasis:hasConditionalOperator  r2r:MDICBOperator ;
+        oasis:hasConditionalOperator  ag:RWOPCBOperator ;
         oasis:hasConditionalSubject   ag:RWOPCBSubject .
-
-ag:RideLegTemplateEntry
-        a                             oasis:EntryTemplate , owl:NamedIndividual , r2r:RidesharingLeg ;
-        r2r:hasTransportationService  ag:RideTemplateEntry .
 
 ag:RidesharingBooking
         a       oasis:SmartContract , owl:NamedIndividual ;
         oasis:consistsOfSmartContractEntry
-                ag:DriverEntry , ag:OfferItemEntry , ag:PassengerEntry .
+                ag:RBDriverEntry , ag:RBOfferItemEntry , ag:RBPassengerEntry .
 
-r2r:RideLegTemplateEntry
-        a       oasis:EntryTemplate , owl:NamedIndividual , r2r:RidesharingLeg .
+ag:MDITripLegTempEntry
+        a                  oasis:EntryTemplate , owl:NamedIndividual , r2r:TravelEpisode ;
+        owl:differentFrom  ag:MDIRideLegTempEntry ;
+        r2r:operatedBy     ag:MDITSPTempEntry .
 
 ag:MDICondition  a                oasis:Conditional , owl:NamedIndividual ;
         oasis:hasConditionalBody  ag:MDIConditionalBody ;
@@ -177,10 +218,13 @@ ag:MDIConditionalHead
         oasis:hasConditionalHeadAtom  ag:MDICHAtom .
 
 ag:MDI3CBObject  a             oasis:ConditionalObject , owl:NamedIndividual ;
-        oasis:refersExactlyTo  ag:OfferTemplateEntry .
+        oasis:refersExactlyTo  ag:MDI3OfferTempEntry .
 
-ag:TSPEntry  a              oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:TSPTemplateEntry .
+ag:RWOPPassengerTempEntry
+        a       oasis:EntryTemplate , owl:NamedIndividual , osdm:Passenger .
+
+ag:RBPassengerEntry  a       oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:RBPassengerTempEntry .
 
 ag:MDICHAtom  a                       oasis:ConditionalHeadAtom , owl:NamedIndividual ;
         oasis:hasConditionalObject    ag:MDICHObject ;
@@ -190,15 +234,15 @@ ag:MDICHAtom  a                       oasis:ConditionalHeadAtom , owl:NamedIndiv
 ag:MultimodalDiscountIncentive3
         a                        oasis:SmartContract , owl:NamedIndividual ;
         oasis:consistsOfSmartContractEntry
-                ag:PassengerEntry , ag:TSPEntry ;
+                ag:MDI3PassengerEntry , ag:MDI3TSPEntry ;
         oasis:hasConditionalSet  ag:MDI3Conditionals .
-
-ag:RWOPCBOObject  a          oasis:ConditionalObject , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:RideTemplateEntry .
 
 ag:RWOPConditionalBody
         a                             oasis:ConditionalBody , owl:NamedIndividual ;
         oasis:hasConditionalBodyAtom  ag:RWOPCBAtom .
+
+ag:RWOPCBOObject  a          oasis:ConditionalObject , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:RWOPRideTempEntry .
 
 ag:RWOPConditionalHead
         a                             oasis:ConditionalHead , owl:NamedIndividual ;
@@ -212,33 +256,17 @@ ag:MDICBAtom  a                       oasis:ConditionalBodyAtom , owl:NamedIndiv
 ag:MDI3CHObject  a           oasis:ConditionalObject , owl:NamedIndividual ;
         oasis:refersAsNewTo  ag:20PercDiscountVoucherTemplateEntry .
 
-ag:TripLegTemplateEntry
-        a                  oasis:EntryTemplate , owl:NamedIndividual , r2r:TravelEpisode ;
-        owl:differentFrom  r2r:RideLegTemplateEntry , ag:RideLegTemplateEntry ;
-        r2r:operatedBy     ag:TSPTemplateEntry .
-
-ag:OfferItemTemplateEntry
-        a                        oasis:EntryTemplate , owl:NamedIndividual , r2r:OfferItem ;
-        r2r:coversTravelEpisode  ag:RideLegTemplateEntry ;
-        osdm:passengers          ag:PassengerTemplateEntry ;
-        osdm:confirmedPrice      ag:PriceTemplateEntry .
+ag:MDIPassengerTempEntry
+        a       oasis:EntryTemplate , owl:NamedIndividual , osdm:Passenger .
 
 ag:10PercDiscountVoucherTemplateEntry
         a                       owl:NamedIndividual , r2r:DiscountVoucher ;
         r2r:discountPercentage  10 ;
-        r2r:issuedBy            ag:TSPTemplateEntry ;
-        r2r:issuedTo            ag:PassengerTemplateEntry .
-
-ag:OtherPassengerTemplateEntry
-        a                  oasis:EntryTemplate , owl:NamedIndividual , osdm:Passenger ;
-        owl:differentFrom  ag:PassengerTemplateEntry .
-
-ag:OfferTemplateEntry
-        a          oasis:EntryTemplate , owl:NamedIndividual , osdm:Offer ;
-        osdm:trip  ag:TripTemplateEntry .
+        r2r:issuedBy            ag:MDITSPTempEntry ;
+        r2r:issuedTo            ag:MDIPassengerTempEntry .
 
 ag:RWOPCBOSubject  a           oasis:ConditionalSubject , owl:NamedIndividual ;
-        oasis:refersExactlyTo  ag:OtherPassengerTemplateEntry .
+        oasis:refersExactlyTo  ag:RWOPOtherPassengerTempEntry .
 
 ag:RWOPCHObject  a           oasis:ConditionalObject , owl:NamedIndividual ;
         oasis:refersAsNewTo  ag:SeatVoucherTemplateEntry .
@@ -248,6 +276,12 @@ ag:RWOPConditionals  a        oasis:ConditionalSet , owl:NamedIndividual ;
 
 ag:MDI3CHOperator  a           oasis:ConditionalOperator , owl:NamedIndividual ;
         oasis:refersExactlyTo  r2r:issue .
+
+ag:MDI3PassengerEntry
+        a                    oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:MDI3PassengerTempEntry .
+
+ag:MDITSPTempEntry  a  oasis:EntryTemplate , owl:NamedIndividual , tmorg:Operator .
 
 ag:MDI3ConditionalHead
         a                             oasis:ConditionalHead , owl:NamedIndividual ;
@@ -260,17 +294,28 @@ ag:MDIConditionalBody
 ag:MDI3CBArgument  a           oasis:ConditionalOperatorArgument , owl:NamedIndividual ;
         oasis:refersExactlyTo  ag:threeTimes .
 
-ag:InventoryAllocationTemplateEntry
-        a               oasis:EntryTemplate , owl:NamedIndividual , r2r:InventoryAllocation ;
-        r2r:consumable  r2r:Seats .
+ag:RBOfferItemTempEntry
+        a                        oasis:EntryTemplate , owl:NamedIndividual , r2r:OfferItem ;
+        r2r:coversTravelEpisode  ag:RBRideLegTempEntry ;
+        osdm:confirmedPrice      ag:RBPriceTempEntry ;
+        osdm:passengers          ag:RBPassengerTempEntry ;
+        osdm:reservations        ag:RBSeatReservationTempEntry .
+
+ag:MDITSPEntry  a            oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:MDITSPTempEntry .
+
+ag:MDI3PassengerTempEntry
+        a       oasis:EntryTemplate , owl:NamedIndividual , osdm:Passenger .
 
 ag:MultimodalDiscountIncentive
         a                        oasis:SmartContract , owl:NamedIndividual ;
         oasis:consistsOfSmartContractEntry
-                ag:PassengerEntry , ag:TSPEntry ;
+                ag:MDIPassengerEntry , ag:MDITSPEntry ;
         oasis:hasConditionalSet  ag:MDIConditionals .
 
-ag:TSPTemplateEntry  a  oasis:EntryTemplate , owl:NamedIndividual , tmorg:Operator .
+ag:RBRideLegTempEntry
+        a                             oasis:EntryTemplate , owl:NamedIndividual , r2r:RidesharingLeg ;
+        r2r:hasTransportationService  ag:RBRideTempEntry .
 
 ag:MDICHOperator  a            oasis:ConditionalOperator , owl:NamedIndividual ;
         oasis:refersExactlyTo  r2r:issue .
@@ -279,4 +324,4 @@ ag:MDICBOperator  a            oasis:ConditionalOperator , owl:NamedIndividual ;
         oasis:refersExactlyTo  r2r:book .
 
 ag:MDICHSubject  a           oasis:ConditionalSubject , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:TSPTemplateEntry .
+        oasis:refersAsNewTo  ag:MDITSPTempEntry .
