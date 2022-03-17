@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" modified="2022-03-11T09:26:06.403Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36" etag="R3d5LvW9OjRTSUz7kZVB" version="16.5.6" type="google">
+<mxfile host="app.diagrams.net" modified="2022-03-17T09:59:26.872Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36" etag="DFhPBSyXxOV6mIrOKTZI" version="17.1.1" type="google">
   <diagram name="rwop-incentive" id="pWNQ6dzZ0hcmyLrGxST6">
-    <mxGraphModel dx="1384" dy="1567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1038" dy="1382" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="TREPjPHwRBllnuQvmsNm-0" />
         <mxCell id="TREPjPHwRBllnuQvmsNm-1" parent="TREPjPHwRBllnuQvmsNm-0" />
@@ -53,7 +53,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TREPjPHwRBllnuQvmsNm-7" value="&lt;div&gt;&lt;b&gt;r2r&lt;/b&gt;: https://ride2rail.eu/onto/ledger#&lt;br&gt;&lt;b&gt;ag&lt;/b&gt;: https://ride2rail.eu/onto/ledger/agreements#&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;osdm&lt;/b&gt;: https://w3id.org/mobility/osdm/core#&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;oasis&lt;/b&gt;:&amp;nbsp;http://www.dmi.unict.it/oasis.owl#&lt;br&gt;&lt;b&gt;skos&lt;/b&gt;: http://www.w3.org/2004/02/skos/core#&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;tmorg&lt;/b&gt;: https://w3id.org/mobility/transmodel/organisations#&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="TREPjPHwRBllnuQvmsNm-1" vertex="1">
+        <mxCell id="TREPjPHwRBllnuQvmsNm-7" value="&lt;div&gt;&lt;b&gt;r2r&lt;/b&gt;: https://w3id.org/ride2rail/terms#&lt;br&gt;&lt;b&gt;ag&lt;/b&gt;: https://w3id.org/ride2rail/agreements#&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;osdm&lt;/b&gt;: https://w3id.org/mobility/osdm/core#&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;oasis&lt;/b&gt;:&amp;nbsp;http://www.dmi.unict.it/oasis.owl#&lt;br&gt;&lt;b&gt;skos&lt;/b&gt;: http://www.w3.org/2004/02/skos/core#&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;tmorg&lt;/b&gt;: https://w3id.org/mobility/transmodel/organisations#&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" parent="TREPjPHwRBllnuQvmsNm-1" vertex="1">
           <mxGeometry x="28.07" y="12" width="361.93" height="98" as="geometry" />
         </mxCell>
         <mxCell id="TREPjPHwRBllnuQvmsNm-9" value="oasis:SmartContract" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="TREPjPHwRBllnuQvmsNm-1" vertex="1">
@@ -770,19 +770,19 @@
             <mxPoint x="-85" y="-273" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="cdqRvRbOM37iJCl0sdo2-0" value="oasis:Action" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="TREPjPHwRBllnuQvmsNm-1">
+        <mxCell id="cdqRvRbOM37iJCl0sdo2-0" value="oasis:Action" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="TREPjPHwRBllnuQvmsNm-1" vertex="1">
           <mxGeometry x="1047" y="-52" width="78.68" height="23.36" as="geometry" />
         </mxCell>
-        <mxCell id="cdqRvRbOM37iJCl0sdo2-1" value="" style="endArrow=open;html=1;fontColor=#000099;endFill=0;dashed=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;rounded=0;" edge="1" parent="TREPjPHwRBllnuQvmsNm-1" target="cdqRvRbOM37iJCl0sdo2-0" source="UrLywwIKUJePSpp_onCl-19">
+        <mxCell id="cdqRvRbOM37iJCl0sdo2-1" value="" style="endArrow=open;html=1;fontColor=#000099;endFill=0;dashed=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;rounded=0;" parent="TREPjPHwRBllnuQvmsNm-1" source="UrLywwIKUJePSpp_onCl-19" target="cdqRvRbOM37iJCl0sdo2-0" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="930.6799999999998" y="-80" as="sourcePoint" />
             <mxPoint x="667.68" y="-70" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Ma55dAZOrig3j4Zc3Cds-0" value="oasis:Action" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="TREPjPHwRBllnuQvmsNm-1">
+        <mxCell id="Ma55dAZOrig3j4Zc3Cds-0" value="oasis:Action" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="TREPjPHwRBllnuQvmsNm-1" vertex="1">
           <mxGeometry x="682.8" y="698.28" width="78.68" height="23.36" as="geometry" />
         </mxCell>
-        <mxCell id="Ma55dAZOrig3j4Zc3Cds-1" value="" style="endArrow=open;html=1;fontColor=#000099;endFill=0;dashed=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endSize=8;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="TREPjPHwRBllnuQvmsNm-1" target="Ma55dAZOrig3j4Zc3Cds-0" source="TREPjPHwRBllnuQvmsNm-107">
+        <mxCell id="Ma55dAZOrig3j4Zc3Cds-1" value="" style="endArrow=open;html=1;fontColor=#000099;endFill=0;dashed=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endSize=8;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="TREPjPHwRBllnuQvmsNm-1" source="TREPjPHwRBllnuQvmsNm-107" target="Ma55dAZOrig3j4Zc3Cds-0" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="719.3399999999997" y="682.6400000000001" as="sourcePoint" />
             <mxPoint x="300.67999999999995" y="688" as="targetPoint" />
@@ -791,7 +791,7 @@
         <mxCell id="TREPjPHwRBllnuQvmsNm-79" value="&lt;u&gt;ag:&lt;/u&gt;&lt;u&gt;RWOPCB&lt;/u&gt;&lt;u&gt;Operator&lt;/u&gt;" style="rounded=0;whiteSpace=wrap;html=1;snapToPoint=1;points=[[0.1,0],[0.2,0],[0.3,0],[0.4,0],[0.5,0],[0.6,0],[0.7,0],[0.8,0],[0.9,0],[0,0.1],[0,0.3],[0,0.5],[0,0.7],[0,0.9],[0.1,1],[0.2,1],[0.3,1],[0.4,1],[0.5,1],[0.6,1],[0.7,1],[0.8,1],[0.9,1],[1,0.1],[1,0.3],[1,0.5],[1,0.7],[1,0.9]];fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="TREPjPHwRBllnuQvmsNm-1" vertex="1">
           <mxGeometry x="833.6800000000001" y="182" width="150" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="IvA7aV5YtKtTeNMBr6A3-0" value="" style="endArrow=classic;html=1;exitX=0.7;exitY=0;exitDx=0;exitDy=0;endSize=8;rounded=0;edgeStyle=orthogonalEdgeStyle;entryDx=0;entryDy=0;endFill=1;" edge="1" parent="TREPjPHwRBllnuQvmsNm-1" source="TREPjPHwRBllnuQvmsNm-47" target="TREPjPHwRBllnuQvmsNm-79">
+        <mxCell id="IvA7aV5YtKtTeNMBr6A3-0" value="" style="endArrow=classic;html=1;exitX=0.7;exitY=0;exitDx=0;exitDy=0;endSize=8;rounded=0;edgeStyle=orthogonalEdgeStyle;entryDx=0;entryDy=0;endFill=1;" parent="TREPjPHwRBllnuQvmsNm-1" source="TREPjPHwRBllnuQvmsNm-47" target="TREPjPHwRBllnuQvmsNm-79" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="646.2920000000001" y="296.6400000000001" as="sourcePoint" />
             <mxPoint x="833" y="197" as="targetPoint" />
@@ -801,7 +801,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="IvA7aV5YtKtTeNMBr6A3-1" value="&lt;div&gt;oasis:hasConditionalOperator&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="IvA7aV5YtKtTeNMBr6A3-0">
+        <mxCell id="IvA7aV5YtKtTeNMBr6A3-1" value="&lt;div&gt;oasis:hasConditionalOperator&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=#ffffff;" parent="IvA7aV5YtKtTeNMBr6A3-0" vertex="1" connectable="0">
           <mxGeometry x="-0.1269" relative="1" as="geometry">
             <mxPoint x="64" y="-10" as="offset" />
           </mxGeometry>
