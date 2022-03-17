@@ -1,11 +1,11 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix : <https://ride2rail.eu/onto/ledger/r2r-events#> .
+@prefix : <https://w3id.org/ride2rail/rb-events#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.owl-ontologies.com/skos#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ride2rail.eu/onto/ledger/r2r-events> 
+<https://w3id.org/ride2rail/rb-events> 
     a skos:ConceptScheme ;
     dct:title "Events for a Ridesharing Booking"@en ;
     dct:creator "Mario Scrocca (Cefriel)" ;
@@ -20,66 +20,66 @@
 :RidesharingCancelledDriver a skos:Concept ;
     skos:broader :RidesharingCancelled ;
     skos:definition "The booked ridesharing is cancelled by the driver"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:prefLabel "Ridesharing cancelled by driver"^^xsd:string .
 
 :RidesharingCancelledPassenger a skos:Concept ;
     skos:broader :RidesharingCancelled ;
     skos:definition "The booked ridesharing is cancelled by the passenger"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:prefLabel "Ridesharing cancelled by passenger"^^xsd:string .
 
 :RidesharingCompleted a skos:Concept ;
     skos:definition "The booked ridesharing is completed"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:prefLabel "Ridesharing completed"^^xsd:string .
 
 :RidesharingDelayedDriver a skos:Concept ;
     skos:broader :RidesharingDelayed ;
     skos:definition "The booked ridesharing is delayed because of the driver"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:prefLabel "Ridesharing delayed by driver"^^xsd:string .
 
 :RidesharingDelayedPassenger a skos:Concept ;
     skos:broader :RidesharingDelayed ;
     skos:definition "The booked ridesharing is delayed because of thee passenger"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:prefLabel "Ridesharing delayed by passenger"^^xsd:string .
 
 :RidesharingNoShowDriver a skos:Concept ;
     skos:broader :RidesharingNoShow ;
     skos:definition "The booked ridesharing can not be performed because the driver didn't show"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:prefLabel "Ridesharing no show by driver"^^xsd:string .
 
 :RidesharingNoShowPassenger a skos:Concept ;
     skos:broader :RidesharingNoShow ;
     skos:definition "The booked ridesharing can not be performed because the passenger didn't show"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:prefLabel "Ridesharing no show by passenger"^^xsd:string .
 
 :RidesharingStarted a skos:Concept ;
     skos:definition "The booked ridesharing is started"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:prefLabel "Ridesharing started"^^xsd:string .
 
 :RidesharingCancelled a skos:Concept ;
     skos:definition "The booked ridesharing is cancelled"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:narrower :RidesharingCancelledDriver,
         :RidesharingCancelledPassenger ;
     skos:prefLabel "Ridesharing cancelled"^^xsd:string .
 
 :RidesharingDelayed a skos:Concept ;
     skos:definition "The booked ridesharing is delayed"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:narrower :RidesharingDelayedDriver,
         :RidesharingDelayedPassenger ;
     skos:prefLabel "Ridesharing delayed"^^xsd:string .
 
 :RidesharingNoShow a skos:Concept ;
     skos:definition "The booked ridesharing can not be performed because one of the involved actors didn't arrive"^^xsd:string ;
-    skos:inScheme <https://ride2rail.eu/onto/ledger/r2r-events> ;
+    skos:inScheme <https://w3id.org/ride2rail/rb-events> ;
     skos:narrower :RidesharingNoShowDriver,
         :RidesharingNoShowPassenger ;
     skos:prefLabel "Ridesharing no show"^^xsd:string .
