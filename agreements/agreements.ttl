@@ -8,7 +8,7 @@
 @prefix tmorg: <https://w3id.org/mobility/transmodel/organisations#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 
-ag:RidesharingBooking a owl:NamedIndividual ,
+ag:RidesharingBookingSmartContract a owl:NamedIndividual ,
                                 oasis:SmartContract ;
                        rdfs:comment "An agreement between a Driver and a Passenger for a specific Ride offered by the Driver and booked by the Passenger." ;
                        rdfs:label "Ridesharing booking" .
@@ -134,8 +134,11 @@ ag:RWOPOtherPassengerTempEntry
 ag:RWOPTSPEntry  a           oasis:SmartContractEntryParticipant , owl:NamedIndividual ;
         oasis:refersAsNewTo  ag:RWOPTSPTempEntry .
 
-ag:RBOfferItemEntry  a       oasis:SmartContractEntryValue , owl:NamedIndividual ;
-        oasis:refersAsNewTo  ag:RBOfferItemTempEntry .
+ag:RBRidesharingEntry  a       oasis:SmartContractEntryValue , owl:NamedIndividual ;
+        oasis:refersAsNewTo  ag:RBTempEntry .
+
+ag:RBTempEntry  a            oasis:EntryTemplate , r2r:RidesharingBooking , owl:NamedIndividual ;
+        osdm:bookedOffers  ag:RBOfferItemTempEntry .
 
 ag:RBRideTempEntry  a            oasis:EntryTemplate , owl:NamedIndividual , r2r:Ride ;
         r2r:inventoryAllocation  ag:RBInventoryAllocationTempEntry ;
@@ -199,10 +202,10 @@ ag:RWOPCBAtom  a                      oasis:ConditionalBodyAtom , owl:NamedIndiv
         oasis:hasConditionalOperator  ag:RWOPCBOperator ;
         oasis:hasConditionalSubject   ag:RWOPCBSubject .
 
-ag:RidesharingBooking
+ag:RidesharingBookingSmartContract
         a       oasis:SmartContract , owl:NamedIndividual ;
         oasis:consistsOfSmartContractEntry
-                ag:RBDriverEntry , ag:RBOfferItemEntry , ag:RBPassengerEntry .
+                ag:RBDriverEntry , ag:RBRidesharingEntry , ag:RBPassengerEntry .
 
 ag:MDITripLegTempEntry
         a                  oasis:EntryTemplate , owl:NamedIndividual , r2r:TravelEpisode ;
