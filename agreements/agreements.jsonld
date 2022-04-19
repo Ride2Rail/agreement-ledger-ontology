@@ -1,0 +1,490 @@
+{
+  "@graph" : [ {
+    "@id" : "ag:10PercDiscountVoucherTemplateEntry",
+    "@type" : [ "owl:NamedIndividual", "r2r:DiscountVoucher" ],
+    "r2r:discountPercentage" : 10,
+    "issuedBy" : "ag:MDITSPTempEntry",
+    "issuedTo" : "ag:MDIPassengerTempEntry"
+  }, {
+    "@id" : "ag:20PercDiscountVoucherTemplateEntry",
+    "@type" : [ "owl:NamedIndividual", "r2r:DiscountVoucher" ],
+    "r2r:discountPercentage" : 20,
+    "issuedBy" : "ag:MDI3TSPTempEntry",
+    "issuedTo" : "ag:MDI3PassengerTempEntry"
+  }, {
+    "@id" : "ag:MDI3CBArgument",
+    "@type" : [ "oasis:ConditionalOperatorArgument", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "ag:threeTimes"
+  }, {
+    "@id" : "ag:MDI3CBAtom",
+    "@type" : [ "oasis:ConditionalBodyAtom", "owl:NamedIndividual" ],
+    "hasConditionalObject" : "ag:MDI3CBObject",
+    "hasConditionalOperator" : "ag:MDI3CBOperator",
+    "hasConditionalOperatorArgument" : "ag:MDI3CBArgument",
+    "hasConditionalSubject" : "ag:MDI3CBSubject"
+  }, {
+    "@id" : "ag:MDI3CBObject",
+    "@type" : [ "oasis:ConditionalObject", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "ag:MDI3OfferTempEntry"
+  }, {
+    "@id" : "ag:MDI3CBOperator",
+    "@type" : [ "oasis:ConditionalOperator", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "r2r:book"
+  }, {
+    "@id" : "ag:MDI3CBSubject",
+    "@type" : [ "oasis:ConditionalSubject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:MDI3PassengerTempEntry"
+  }, {
+    "@id" : "ag:MDI3CHAtom",
+    "@type" : [ "oasis:ConditionalHeadAtom", "owl:NamedIndividual" ],
+    "hasConditionalObject" : "ag:MDI3CHObject",
+    "hasConditionalOperator" : "ag:MDI3CHOperator",
+    "hasConditionalSubject" : "ag:MDI3CHSubject"
+  }, {
+    "@id" : "ag:MDI3CHObject",
+    "@type" : [ "oasis:ConditionalObject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:20PercDiscountVoucherTemplateEntry"
+  }, {
+    "@id" : "ag:MDI3CHOperator",
+    "@type" : [ "oasis:ConditionalOperator", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "r2r:issue"
+  }, {
+    "@id" : "ag:MDI3CHSubject",
+    "@type" : [ "oasis:ConditionalSubject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:MDI3TSPTempEntry"
+  }, {
+    "@id" : "ag:MDI3Condition",
+    "@type" : [ "oasis:Conditional", "owl:NamedIndividual" ],
+    "hasConditionalBody" : "ag:MDI3ConditionalBody",
+    "hasConditionalHead" : "ag:MDI3ConditionalHead"
+  }, {
+    "@id" : "ag:MDI3ConditionalBody",
+    "@type" : [ "oasis:ConditionalBody", "owl:NamedIndividual" ],
+    "hasConditionalBodyAtom" : "ag:MDI3CBAtom"
+  }, {
+    "@id" : "ag:MDI3ConditionalHead",
+    "@type" : [ "oasis:ConditionalHead", "owl:NamedIndividual" ],
+    "hasConditionalHeadAtom" : "ag:MDI3CHAtom"
+  }, {
+    "@id" : "ag:MDI3Conditionals",
+    "@type" : [ "oasis:ConditionalSet", "owl:NamedIndividual" ],
+    "hasConditional" : "ag:MDI3Condition"
+  }, {
+    "@id" : "ag:MDI3OfferTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "osdm:Offer" ],
+    "trip" : "ag:MDI3TripTempEntry"
+  }, {
+    "@id" : "ag:MDI3PassengerEntry",
+    "@type" : [ "oasis:SmartContractEntryParticipant", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:MDI3PassengerTempEntry"
+  }, {
+    "@id" : "ag:MDI3PassengerTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "osdm:Passenger" ]
+  }, {
+    "@id" : "ag:MDI3RideLegTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:RidesharingLeg" ]
+  }, {
+    "@id" : "ag:MDI3TSPEntry",
+    "@type" : [ "oasis:SmartContractEntryParticipant", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:MDI3TSPTempEntry"
+  }, {
+    "@id" : "ag:MDI3TSPTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "tmorg:Operator" ]
+  }, {
+    "@id" : "ag:MDI3TripLegTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:TravelEpisode" ],
+    "differentFrom" : "r2r:MDI3RideLegTempEntry",
+    "operatedBy" : "ag:MDI3TSPTempEntry"
+  }, {
+    "@id" : "ag:MDI3TripTempEntry",
+    "@type" : [ "owl:NamedIndividual", "osdm:Trip" ],
+    "includesTravelEpisode" : [ "r2r:MDI3RideLegTempEntry", "ag:MDI3TripLegTempEntry" ]
+  }, {
+    "@id" : "ag:MDICBAtom",
+    "@type" : [ "oasis:ConditionalBodyAtom", "owl:NamedIndividual" ],
+    "hasConditionalObject" : "ag:MDICBObject",
+    "hasConditionalOperator" : "ag:MDICBOperator",
+    "hasConditionalSubject" : "ag:MDICBSubject"
+  }, {
+    "@id" : "ag:MDICBObject",
+    "@type" : [ "oasis:ConditionalObject", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "ag:MDIOfferTempEntry"
+  }, {
+    "@id" : "ag:MDICBOperator",
+    "@type" : [ "oasis:ConditionalOperator", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "r2r:book"
+  }, {
+    "@id" : "ag:MDICBSubject",
+    "@type" : [ "oasis:ConditionalSubject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:MDIPassengerTempEntry"
+  }, {
+    "@id" : "ag:MDICHAtom",
+    "@type" : [ "oasis:ConditionalHeadAtom", "owl:NamedIndividual" ],
+    "hasConditionalObject" : "ag:MDICHObject",
+    "hasConditionalOperator" : "ag:MDICHOperator",
+    "hasConditionalSubject" : "ag:MDICHSubject"
+  }, {
+    "@id" : "ag:MDICHObject",
+    "@type" : [ "oasis:ConditionalObject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:10PercDiscountVoucherTemplateEntry"
+  }, {
+    "@id" : "ag:MDICHOperator",
+    "@type" : [ "oasis:ConditionalOperator", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "r2r:issue"
+  }, {
+    "@id" : "ag:MDICHSubject",
+    "@type" : [ "oasis:ConditionalSubject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:MDITSPTempEntry"
+  }, {
+    "@id" : "ag:MDICondition",
+    "@type" : [ "oasis:Conditional", "owl:NamedIndividual" ],
+    "hasConditionalBody" : "ag:MDIConditionalBody",
+    "hasConditionalHead" : "ag:MDIConditionalHead"
+  }, {
+    "@id" : "ag:MDIConditionalBody",
+    "@type" : [ "oasis:ConditionalBody", "owl:NamedIndividual" ],
+    "hasConditionalBodyAtom" : "ag:MDICBAtom"
+  }, {
+    "@id" : "ag:MDIConditionalHead",
+    "@type" : [ "oasis:ConditionalHead", "owl:NamedIndividual" ],
+    "hasConditionalHeadAtom" : "ag:MDICHAtom"
+  }, {
+    "@id" : "ag:MDIConditionals",
+    "@type" : [ "oasis:ConditionalSet", "owl:NamedIndividual" ],
+    "hasConditional" : "ag:MDICondition"
+  }, {
+    "@id" : "ag:MDIOfferTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "osdm:Offer" ],
+    "trip" : "ag:MDITripTempEntry"
+  }, {
+    "@id" : "ag:MDIPassengerEntry",
+    "@type" : [ "oasis:SmartContractEntryParticipant", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:MDIPassengerTempEntry"
+  }, {
+    "@id" : "ag:MDIPassengerTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "osdm:Passenger" ]
+  }, {
+    "@id" : "ag:MDIRideLegTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:RidesharingLeg" ]
+  }, {
+    "@id" : "ag:MDITSPEntry",
+    "@type" : [ "oasis:SmartContractEntryParticipant", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:MDITSPTempEntry"
+  }, {
+    "@id" : "ag:MDITSPTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "tmorg:Operator" ]
+  }, {
+    "@id" : "ag:MDITripLegTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:TravelEpisode" ],
+    "differentFrom" : "ag:MDIRideLegTempEntry",
+    "operatedBy" : "ag:MDITSPTempEntry"
+  }, {
+    "@id" : "ag:MDITripTempEntry",
+    "@type" : [ "owl:NamedIndividual", "osdm:Trip" ],
+    "includesTravelEpisode" : [ "ag:MDIRideLegTempEntry", "ag:MDITripLegTempEntry" ]
+  }, {
+    "@id" : "ag:MultimodalDiscountIncentive",
+    "@type" : [ "owl:NamedIndividual", "r2r:IncentiveSmartContract", "oasis:SmartContract" ],
+    "consistsOfSmartContractEntry" : [ "ag:MDIPassengerEntry", "ag:MDITSPEntry" ],
+    "hasConditionalSet" : "ag:MDIConditionals",
+    "comment" : "An Incentive promoting multimodal trips through a DiscountVoucher.",
+    "label" : "Multimodal discount incentive"
+  }, {
+    "@id" : "ag:MultimodalDiscountIncentive3",
+    "@type" : [ "owl:NamedIndividual", "r2r:IncentiveSmartContract", "oasis:SmartContract" ],
+    "consistsOfSmartContractEntry" : [ "ag:MDI3PassengerEntry", "ag:MDI3TSPEntry" ],
+    "hasConditionalSet" : "ag:MDI3Conditionals",
+    "comment" : "An Incentive promoting multiple multimodal trips (at least three) through a DiscountVoucher.",
+    "label" : "Multimodal discount incentive three times"
+  }, {
+    "@id" : "ag:RBDriverEntry",
+    "@type" : [ "oasis:SmartContractEntryParticipant", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:RBDriverTempEntry"
+  }, {
+    "@id" : "ag:RBDriverTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:Driver" ]
+  }, {
+    "@id" : "ag:RBInventoryAllocationTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:InventoryAllocation" ],
+    "consumable" : "r2r:Seats"
+  }, {
+    "@id" : "ag:RBOfferItemTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:OfferItem" ],
+    "confirmedPrice" : "ag:RBPriceTempEntry",
+    "passengers" : "ag:RBPassengerTempEntry",
+    "reservations" : "ag:RBSeatReservationTempEntry",
+    "coversTravelEpisode" : "ag:RBRideLegTempEntry"
+  }, {
+    "@id" : "ag:RBPassengerEntry",
+    "@type" : [ "oasis:SmartContractEntryParticipant", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:RBPassengerTempEntry"
+  }, {
+    "@id" : "ag:RBPassengerTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "osdm:Passenger" ]
+  }, {
+    "@id" : "ag:RBPriceTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "osdm:Price" ]
+  }, {
+    "@id" : "ag:RBRideLegTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:RidesharingLeg" ],
+    "hasTransportationService" : "ag:RBRideTempEntry"
+  }, {
+    "@id" : "ag:RBRideTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:Ride" ],
+    "inventoryAllocation" : "ag:RBInventoryAllocationTempEntry",
+    "operatedBy" : "ag:RBDriverTempEntry"
+  }, {
+    "@id" : "ag:RBRidesharingEntry",
+    "@type" : [ "oasis:SmartContractEntryValue", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:RBTempEntry"
+  }, {
+    "@id" : "ag:RBSeatReservationTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:InventoryReservation" ]
+  }, {
+    "@id" : "ag:RBTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "r2r:RidesharingBooking", "owl:NamedIndividual" ],
+    "bookedOffers" : "ag:RBOfferItemTempEntry"
+  }, {
+    "@id" : "ag:RWOPCBAtom",
+    "@type" : [ "oasis:ConditionalBodyAtom", "owl:NamedIndividual" ],
+    "hasConditionalObject" : "ag:RWOPCBObject",
+    "hasConditionalOperator" : "ag:RWOPCBOperator",
+    "hasConditionalSubject" : "ag:RWOPCBSubject"
+  }, {
+    "@id" : "ag:RWOPCBOAtom",
+    "@type" : [ "oasis:ConditionalBodyAtom", "owl:NamedIndividual" ],
+    "hasConditionalObject" : "ag:RWOPCBOObject",
+    "hasConditionalOperator" : "ag:RWOPCBOOperator",
+    "hasConditionalSubject" : "ag:RWOPCBOSubject"
+  }, {
+    "@id" : "ag:RWOPCBOObject",
+    "@type" : [ "oasis:ConditionalObject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:RWOPRideTempEntry"
+  }, {
+    "@id" : "ag:RWOPCBOOperator",
+    "@type" : [ "oasis:ConditionalOperator", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "r2r:book"
+  }, {
+    "@id" : "ag:RWOPCBOSubject",
+    "@type" : [ "oasis:ConditionalSubject", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "ag:RWOPOtherPassengerTempEntry"
+  }, {
+    "@id" : "ag:RWOPCBObject",
+    "@type" : [ "oasis:ConditionalObject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:RWOPRideTempEntry"
+  }, {
+    "@id" : "ag:RWOPCBOperator",
+    "@type" : [ "oasis:ConditionalOperator", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "r2r:book"
+  }, {
+    "@id" : "ag:RWOPCBSubject",
+    "@type" : [ "oasis:ConditionalSubject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:RWOPPassengerTempEntry"
+  }, {
+    "@id" : "ag:RWOPCHAtom",
+    "@type" : [ "oasis:ConditionalHeadAtom", "owl:NamedIndividual" ],
+    "hasConditionalObject" : "ag:RWOPCHObject",
+    "hasConditionalOperator" : "ag:RWOPCHOperator",
+    "hasConditionalSubject" : "ag:RWOPCHSubject"
+  }, {
+    "@id" : "ag:RWOPCHObject",
+    "@type" : [ "oasis:ConditionalObject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:SeatVoucherTemplateEntry"
+  }, {
+    "@id" : "ag:RWOPCHOperator",
+    "@type" : [ "oasis:ConditionalOperator", "owl:NamedIndividual" ],
+    "refersExactlyTo" : "r2r:issue"
+  }, {
+    "@id" : "ag:RWOPCHSubject",
+    "@type" : [ "oasis:ConditionalSubject", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:RWOPTSPTempEntry"
+  }, {
+    "@id" : "ag:RWOPCondition",
+    "@type" : [ "oasis:Conditional", "owl:NamedIndividual" ],
+    "hasConditionalBody" : "ag:RWOPConditionalBody",
+    "hasConditionalHead" : "ag:RWOPConditionalHead"
+  }, {
+    "@id" : "ag:RWOPConditionalBody",
+    "@type" : [ "oasis:ConditionalBody", "owl:NamedIndividual" ],
+    "hasConditionalBodyAtom" : "ag:RWOPCBAtom"
+  }, {
+    "@id" : "ag:RWOPConditionalHead",
+    "@type" : [ "oasis:ConditionalHead", "owl:NamedIndividual" ],
+    "hasConditionalHeadAtom" : "ag:RWOPCHAtom"
+  }, {
+    "@id" : "ag:RWOPConditionals",
+    "@type" : [ "oasis:ConditionalSet", "owl:NamedIndividual" ],
+    "hasConditional" : "ag:RWOPCondition"
+  }, {
+    "@id" : "ag:RWOPOtherPassengerTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "osdm:Passenger" ],
+    "differentFrom" : "ag:RWOPPassengerTempEntry"
+  }, {
+    "@id" : "ag:RWOPPassengerEntry",
+    "@type" : [ "oasis:SmartContractEntryParticipant", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:RWOPPassengerTempEntry"
+  }, {
+    "@id" : "ag:RWOPPassengerTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "osdm:Passenger" ]
+  }, {
+    "@id" : "ag:RWOPRideTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "r2r:Ride" ]
+  }, {
+    "@id" : "ag:RWOPTSPEntry",
+    "@type" : [ "oasis:SmartContractEntryParticipant", "owl:NamedIndividual" ],
+    "refersAsNewTo" : "ag:RWOPTSPTempEntry"
+  }, {
+    "@id" : "ag:RWOPTSPTempEntry",
+    "@type" : [ "oasis:EntryTemplate", "owl:NamedIndividual", "tmorg:Operator" ]
+  }, {
+    "@id" : "ag:RideWithOtherPassengersIncentive",
+    "@type" : [ "owl:NamedIndividual", "r2r:IncentiveSmartContract", "oasis:SmartContract" ],
+    "consistsOfSmartContractEntry" : [ "ag:RWOPPassengerEntry", "ag:RWOPTSPEntry" ],
+    "hasConditionalSet" : "ag:RWOPConditionals",
+    "comment" : "An Incentive promoting the booking of Rides already involving other Passengers.",
+    "label" : "Ridesharing with other passengers incentive"
+  }, {
+    "@id" : "ag:RidesharingBookingSmartContract",
+    "@type" : [ "owl:NamedIndividual", "oasis:SmartContract" ],
+    "consistsOfSmartContractEntry" : [ "ag:RBDriverEntry", "ag:RBRidesharingEntry", "ag:RBPassengerEntry" ],
+    "comment" : "An agreement between a Driver and a Passenger for a specific Ride offered by the Driver and booked by the Passenger.",
+    "label" : "Ridesharing booking"
+  }, {
+    "@id" : "ag:SeatVoucherTemplateEntry",
+    "@type" : [ "owl:NamedIndividual", "r2r:SeatUpgradeVoucher" ],
+    "issuedBy" : "ag:RWOPTSPTempEntry",
+    "issuedTo" : "ag:RWOPPassengerTempEntry"
+  }, {
+    "@id" : "ag:threeTimes",
+    "@type" : [ "oasis:OperatorArgument", "owl:NamedIndividual" ]
+  } ],
+  "@context" : {
+    "hasConditional" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#hasConditional",
+      "@type" : "@id"
+    },
+    "refersAsNewTo" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#refersAsNewTo",
+      "@type" : "@id"
+    },
+    "differentFrom" : {
+      "@id" : "http://www.w3.org/2002/07/owl#differentFrom",
+      "@type" : "@id"
+    },
+    "discountPercentage" : {
+      "@id" : "https://w3id.org/ride2rail/terms#discountPercentage",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "issuedBy" : {
+      "@id" : "https://w3id.org/ride2rail/terms#issuedBy",
+      "@type" : "@id"
+    },
+    "issuedTo" : {
+      "@id" : "https://w3id.org/ride2rail/terms#issuedTo",
+      "@type" : "@id"
+    },
+    "refersExactlyTo" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#refersExactlyTo",
+      "@type" : "@id"
+    },
+    "trip" : {
+      "@id" : "https://w3id.org/mobility/osdm/core#trip",
+      "@type" : "@id"
+    },
+    "hasConditionalObject" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#hasConditionalObject",
+      "@type" : "@id"
+    },
+    "hasConditionalOperator" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#hasConditionalOperator",
+      "@type" : "@id"
+    },
+    "hasConditionalSubject" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#hasConditionalSubject",
+      "@type" : "@id"
+    },
+    "bookedOffers" : {
+      "@id" : "https://w3id.org/mobility/osdm/core#bookedOffers",
+      "@type" : "@id"
+    },
+    "hasConditionalOperatorArgument" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#hasConditionalOperatorArgument",
+      "@type" : "@id"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "consistsOfSmartContractEntry" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#consistsOfSmartContractEntry",
+      "@type" : "@id"
+    },
+    "hasConditionalSet" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#hasConditionalSet",
+      "@type" : "@id"
+    },
+    "hasTransportationService" : {
+      "@id" : "https://w3id.org/ride2rail/terms#hasTransportationService",
+      "@type" : "@id"
+    },
+    "hasConditionalHeadAtom" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#hasConditionalHeadAtom",
+      "@type" : "@id"
+    },
+    "inventoryAllocation" : {
+      "@id" : "https://w3id.org/ride2rail/terms#inventoryAllocation",
+      "@type" : "@id"
+    },
+    "operatedBy" : {
+      "@id" : "https://w3id.org/ride2rail/terms#operatedBy",
+      "@type" : "@id"
+    },
+    "coversTravelEpisode" : {
+      "@id" : "https://w3id.org/ride2rail/terms#coversTravelEpisode",
+      "@type" : "@id"
+    },
+    "confirmedPrice" : {
+      "@id" : "https://w3id.org/mobility/osdm/core#confirmedPrice",
+      "@type" : "@id"
+    },
+    "passengers" : {
+      "@id" : "https://w3id.org/mobility/osdm/core#passengers",
+      "@type" : "@id"
+    },
+    "reservations" : {
+      "@id" : "https://w3id.org/mobility/osdm/core#reservations",
+      "@type" : "@id"
+    },
+    "hasConditionalBodyAtom" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#hasConditionalBodyAtom",
+      "@type" : "@id"
+    },
+    "includesTravelEpisode" : {
+      "@id" : "https://w3id.org/ride2rail/terms#includesTravelEpisode",
+      "@type" : "@id"
+    },
+    "consumable" : {
+      "@id" : "https://w3id.org/ride2rail/terms#consumable",
+      "@type" : "@id"
+    },
+    "hasConditionalBody" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#hasConditionalBody",
+      "@type" : "@id"
+    },
+    "hasConditionalHead" : {
+      "@id" : "http://www.dmi.unict.it/oasis.owl#hasConditionalHead",
+      "@type" : "@id"
+    },
+    "oasis" : "http://www.dmi.unict.it/oasis.owl#",
+    "r2r" : "https://w3id.org/ride2rail/terms#",
+    "owl" : "http://www.w3.org/2002/07/owl#",
+    "ag" : "https://w3id.org/ride2rail/agreements#",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "osdm" : "https://w3id.org/mobility/osdm/core#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "tmorg" : "https://w3id.org/mobility/transmodel/organisations#",
+    "dc" : "http://purl.org/dc/elements/1.1/"
+  }
+}

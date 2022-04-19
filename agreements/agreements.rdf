@@ -1,0 +1,484 @@
+<rdf:RDF
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:oasis="http://www.dmi.unict.it/oasis.owl#"
+    xmlns:r2r="https://w3id.org/ride2rail/terms#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:ag="https://w3id.org/ride2rail/agreements#"
+    xmlns:tmorg="https://w3id.org/mobility/transmodel/organisations#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:osdm="https://w3id.org/mobility/osdm/core#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/agreements#MultimodalDiscountIncentive">
+    <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#IncentiveSmartContract"/>
+    <rdfs:comment>An Incentive promoting multimodal trips through a DiscountVoucher.</rdfs:comment>
+    <rdfs:label>Multimodal discount incentive</rdfs:label>
+    <rdf:type rdf:resource="http://www.dmi.unict.it/oasis.owl#SmartContract"/>
+    <oasis:consistsOfSmartContractEntry>
+      <oasis:SmartContractEntryParticipant rdf:about="https://w3id.org/ride2rail/agreements#MDIPassengerEntry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersAsNewTo>
+          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#MDIPassengerTempEntry">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <rdf:type rdf:resource="https://w3id.org/mobility/osdm/core#Passenger"/>
+          </oasis:EntryTemplate>
+        </oasis:refersAsNewTo>
+      </oasis:SmartContractEntryParticipant>
+    </oasis:consistsOfSmartContractEntry>
+    <oasis:consistsOfSmartContractEntry>
+      <oasis:SmartContractEntryParticipant rdf:about="https://w3id.org/ride2rail/agreements#MDITSPEntry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersAsNewTo>
+          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#MDITSPTempEntry">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <rdf:type rdf:resource="https://w3id.org/mobility/transmodel/organisations#Operator"/>
+          </oasis:EntryTemplate>
+        </oasis:refersAsNewTo>
+      </oasis:SmartContractEntryParticipant>
+    </oasis:consistsOfSmartContractEntry>
+    <oasis:hasConditionalSet>
+      <oasis:ConditionalSet rdf:about="https://w3id.org/ride2rail/agreements#MDIConditionals">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:hasConditional>
+          <oasis:Conditional rdf:about="https://w3id.org/ride2rail/agreements#MDICondition">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <oasis:hasConditionalBody>
+              <oasis:ConditionalBody rdf:about="https://w3id.org/ride2rail/agreements#MDIConditionalBody">
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                <oasis:hasConditionalBodyAtom>
+                  <oasis:ConditionalBodyAtom rdf:about="https://w3id.org/ride2rail/agreements#MDICBAtom">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                    <oasis:hasConditionalObject>
+                      <oasis:ConditionalObject rdf:about="https://w3id.org/ride2rail/agreements#MDICBObject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersExactlyTo>
+                          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#MDIOfferTempEntry">
+                            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                            <rdf:type rdf:resource="https://w3id.org/mobility/osdm/core#Offer"/>
+                            <osdm:trip>
+                              <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/agreements#MDITripTempEntry">
+                                <rdf:type rdf:resource="https://w3id.org/mobility/osdm/core#Trip"/>
+                                <r2r:includesTravelEpisode>
+                                  <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#MDIRideLegTempEntry">
+                                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                                    <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#RidesharingLeg"/>
+                                  </oasis:EntryTemplate>
+                                </r2r:includesTravelEpisode>
+                                <r2r:includesTravelEpisode>
+                                  <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#MDITripLegTempEntry">
+                                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                                    <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#TravelEpisode"/>
+                                    <owl:differentFrom rdf:resource="https://w3id.org/ride2rail/agreements#MDIRideLegTempEntry"/>
+                                    <r2r:operatedBy rdf:resource="https://w3id.org/ride2rail/agreements#MDITSPTempEntry"/>
+                                  </oasis:EntryTemplate>
+                                </r2r:includesTravelEpisode>
+                              </owl:NamedIndividual>
+                            </osdm:trip>
+                          </oasis:EntryTemplate>
+                        </oasis:refersExactlyTo>
+                      </oasis:ConditionalObject>
+                    </oasis:hasConditionalObject>
+                    <oasis:hasConditionalOperator>
+                      <oasis:ConditionalOperator rdf:about="https://w3id.org/ride2rail/agreements#MDICBOperator">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersExactlyTo rdf:resource="https://w3id.org/ride2rail/terms#book"/>
+                      </oasis:ConditionalOperator>
+                    </oasis:hasConditionalOperator>
+                    <oasis:hasConditionalSubject>
+                      <oasis:ConditionalSubject rdf:about="https://w3id.org/ride2rail/agreements#MDICBSubject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersAsNewTo rdf:resource="https://w3id.org/ride2rail/agreements#MDIPassengerTempEntry"/>
+                      </oasis:ConditionalSubject>
+                    </oasis:hasConditionalSubject>
+                  </oasis:ConditionalBodyAtom>
+                </oasis:hasConditionalBodyAtom>
+              </oasis:ConditionalBody>
+            </oasis:hasConditionalBody>
+            <oasis:hasConditionalHead>
+              <oasis:ConditionalHead rdf:about="https://w3id.org/ride2rail/agreements#MDIConditionalHead">
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                <oasis:hasConditionalHeadAtom>
+                  <oasis:ConditionalHeadAtom rdf:about="https://w3id.org/ride2rail/agreements#MDICHAtom">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                    <oasis:hasConditionalObject>
+                      <oasis:ConditionalObject rdf:about="https://w3id.org/ride2rail/agreements#MDICHObject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersAsNewTo>
+                          <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/agreements#10PercDiscountVoucherTemplateEntry">
+                            <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#DiscountVoucher"/>
+                            <r2r:discountPercentage rdf:datatype=
+                            "http://www.w3.org/2001/XMLSchema#integer"
+                            >10</r2r:discountPercentage>
+                            <r2r:issuedBy rdf:resource="https://w3id.org/ride2rail/agreements#MDITSPTempEntry"/>
+                            <r2r:issuedTo rdf:resource="https://w3id.org/ride2rail/agreements#MDIPassengerTempEntry"/>
+                          </owl:NamedIndividual>
+                        </oasis:refersAsNewTo>
+                      </oasis:ConditionalObject>
+                    </oasis:hasConditionalObject>
+                    <oasis:hasConditionalOperator>
+                      <oasis:ConditionalOperator rdf:about="https://w3id.org/ride2rail/agreements#MDICHOperator">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersExactlyTo rdf:resource="https://w3id.org/ride2rail/terms#issue"/>
+                      </oasis:ConditionalOperator>
+                    </oasis:hasConditionalOperator>
+                    <oasis:hasConditionalSubject>
+                      <oasis:ConditionalSubject rdf:about="https://w3id.org/ride2rail/agreements#MDICHSubject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersAsNewTo rdf:resource="https://w3id.org/ride2rail/agreements#MDITSPTempEntry"/>
+                      </oasis:ConditionalSubject>
+                    </oasis:hasConditionalSubject>
+                  </oasis:ConditionalHeadAtom>
+                </oasis:hasConditionalHeadAtom>
+              </oasis:ConditionalHead>
+            </oasis:hasConditionalHead>
+          </oasis:Conditional>
+        </oasis:hasConditional>
+      </oasis:ConditionalSet>
+    </oasis:hasConditionalSet>
+  </owl:NamedIndividual>
+  <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#MDI3RideLegTempEntry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#RidesharingLeg"/>
+  </oasis:EntryTemplate>
+  <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/agreements#RidesharingBookingSmartContract">
+    <rdf:type rdf:resource="http://www.dmi.unict.it/oasis.owl#SmartContract"/>
+    <rdfs:comment>An agreement between a Driver and a Passenger for a specific Ride offered by the Driver and booked by the Passenger.</rdfs:comment>
+    <rdfs:label>Ridesharing booking</rdfs:label>
+    <oasis:consistsOfSmartContractEntry>
+      <oasis:SmartContractEntryParticipant rdf:about="https://w3id.org/ride2rail/agreements#RBDriverEntry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersAsNewTo>
+          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RBDriverTempEntry">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#Driver"/>
+          </oasis:EntryTemplate>
+        </oasis:refersAsNewTo>
+      </oasis:SmartContractEntryParticipant>
+    </oasis:consistsOfSmartContractEntry>
+    <oasis:consistsOfSmartContractEntry>
+      <oasis:SmartContractEntryValue rdf:about="https://w3id.org/ride2rail/agreements#RBRidesharingEntry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersAsNewTo>
+          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RBTempEntry">
+            <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#RidesharingBooking"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <osdm:bookedOffers>
+              <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RBOfferItemTempEntry">
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#OfferItem"/>
+                <r2r:coversTravelEpisode>
+                  <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RBRideLegTempEntry">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                    <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#RidesharingLeg"/>
+                    <r2r:hasTransportationService>
+                      <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RBRideTempEntry">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#Ride"/>
+                        <r2r:inventoryAllocation>
+                          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RBInventoryAllocationTempEntry">
+                            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                            <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#InventoryAllocation"/>
+                            <r2r:consumable rdf:resource="https://w3id.org/ride2rail/terms#Seats"/>
+                          </oasis:EntryTemplate>
+                        </r2r:inventoryAllocation>
+                        <r2r:operatedBy rdf:resource="https://w3id.org/ride2rail/agreements#RBDriverTempEntry"/>
+                      </oasis:EntryTemplate>
+                    </r2r:hasTransportationService>
+                  </oasis:EntryTemplate>
+                </r2r:coversTravelEpisode>
+                <osdm:confirmedPrice>
+                  <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RBPriceTempEntry">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                    <rdf:type rdf:resource="https://w3id.org/mobility/osdm/core#Price"/>
+                  </oasis:EntryTemplate>
+                </osdm:confirmedPrice>
+                <osdm:passengers>
+                  <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RBPassengerTempEntry">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                    <rdf:type rdf:resource="https://w3id.org/mobility/osdm/core#Passenger"/>
+                  </oasis:EntryTemplate>
+                </osdm:passengers>
+                <osdm:reservations>
+                  <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RBSeatReservationTempEntry">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                    <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#InventoryReservation"/>
+                  </oasis:EntryTemplate>
+                </osdm:reservations>
+              </oasis:EntryTemplate>
+            </osdm:bookedOffers>
+          </oasis:EntryTemplate>
+        </oasis:refersAsNewTo>
+      </oasis:SmartContractEntryValue>
+    </oasis:consistsOfSmartContractEntry>
+    <oasis:consistsOfSmartContractEntry>
+      <oasis:SmartContractEntryParticipant rdf:about="https://w3id.org/ride2rail/agreements#RBPassengerEntry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersAsNewTo rdf:resource="https://w3id.org/ride2rail/agreements#RBPassengerTempEntry"/>
+      </oasis:SmartContractEntryParticipant>
+    </oasis:consistsOfSmartContractEntry>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/agreements#RideWithOtherPassengersIncentive">
+    <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#IncentiveSmartContract"/>
+    <rdfs:comment>An Incentive promoting the booking of Rides already involving other Passengers.</rdfs:comment>
+    <rdfs:label>Ridesharing with other passengers incentive</rdfs:label>
+    <rdf:type rdf:resource="http://www.dmi.unict.it/oasis.owl#SmartContract"/>
+    <oasis:consistsOfSmartContractEntry>
+      <oasis:SmartContractEntryParticipant rdf:about="https://w3id.org/ride2rail/agreements#RWOPPassengerEntry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersAsNewTo>
+          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RWOPPassengerTempEntry">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <rdf:type rdf:resource="https://w3id.org/mobility/osdm/core#Passenger"/>
+          </oasis:EntryTemplate>
+        </oasis:refersAsNewTo>
+      </oasis:SmartContractEntryParticipant>
+    </oasis:consistsOfSmartContractEntry>
+    <oasis:consistsOfSmartContractEntry>
+      <oasis:SmartContractEntryParticipant rdf:about="https://w3id.org/ride2rail/agreements#RWOPTSPEntry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersAsNewTo>
+          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RWOPTSPTempEntry">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <rdf:type rdf:resource="https://w3id.org/mobility/transmodel/organisations#Operator"/>
+          </oasis:EntryTemplate>
+        </oasis:refersAsNewTo>
+      </oasis:SmartContractEntryParticipant>
+    </oasis:consistsOfSmartContractEntry>
+    <oasis:hasConditionalSet>
+      <oasis:ConditionalSet rdf:about="https://w3id.org/ride2rail/agreements#RWOPConditionals">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:hasConditional>
+          <oasis:Conditional rdf:about="https://w3id.org/ride2rail/agreements#RWOPCondition">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <oasis:hasConditionalBody>
+              <oasis:ConditionalBody rdf:about="https://w3id.org/ride2rail/agreements#RWOPConditionalBody">
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                <oasis:hasConditionalBodyAtom>
+                  <oasis:ConditionalBodyAtom rdf:about="https://w3id.org/ride2rail/agreements#RWOPCBAtom">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                    <oasis:hasConditionalObject>
+                      <oasis:ConditionalObject rdf:about="https://w3id.org/ride2rail/agreements#RWOPCBObject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersAsNewTo>
+                          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RWOPRideTempEntry">
+                            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                            <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#Ride"/>
+                          </oasis:EntryTemplate>
+                        </oasis:refersAsNewTo>
+                      </oasis:ConditionalObject>
+                    </oasis:hasConditionalObject>
+                    <oasis:hasConditionalOperator>
+                      <oasis:ConditionalOperator rdf:about="https://w3id.org/ride2rail/agreements#RWOPCBOperator">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersExactlyTo rdf:resource="https://w3id.org/ride2rail/terms#book"/>
+                      </oasis:ConditionalOperator>
+                    </oasis:hasConditionalOperator>
+                    <oasis:hasConditionalSubject>
+                      <oasis:ConditionalSubject rdf:about="https://w3id.org/ride2rail/agreements#RWOPCBSubject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersAsNewTo rdf:resource="https://w3id.org/ride2rail/agreements#RWOPPassengerTempEntry"/>
+                      </oasis:ConditionalSubject>
+                    </oasis:hasConditionalSubject>
+                  </oasis:ConditionalBodyAtom>
+                </oasis:hasConditionalBodyAtom>
+              </oasis:ConditionalBody>
+            </oasis:hasConditionalBody>
+            <oasis:hasConditionalHead>
+              <oasis:ConditionalHead rdf:about="https://w3id.org/ride2rail/agreements#RWOPConditionalHead">
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                <oasis:hasConditionalHeadAtom>
+                  <oasis:ConditionalHeadAtom rdf:about="https://w3id.org/ride2rail/agreements#RWOPCHAtom">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                    <oasis:hasConditionalObject>
+                      <oasis:ConditionalObject rdf:about="https://w3id.org/ride2rail/agreements#RWOPCHObject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersAsNewTo>
+                          <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/agreements#SeatVoucherTemplateEntry">
+                            <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#SeatUpgradeVoucher"/>
+                            <r2r:issuedBy rdf:resource="https://w3id.org/ride2rail/agreements#RWOPTSPTempEntry"/>
+                            <r2r:issuedTo rdf:resource="https://w3id.org/ride2rail/agreements#RWOPPassengerTempEntry"/>
+                          </owl:NamedIndividual>
+                        </oasis:refersAsNewTo>
+                      </oasis:ConditionalObject>
+                    </oasis:hasConditionalObject>
+                    <oasis:hasConditionalOperator>
+                      <oasis:ConditionalOperator rdf:about="https://w3id.org/ride2rail/agreements#RWOPCHOperator">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersExactlyTo rdf:resource="https://w3id.org/ride2rail/terms#issue"/>
+                      </oasis:ConditionalOperator>
+                    </oasis:hasConditionalOperator>
+                    <oasis:hasConditionalSubject>
+                      <oasis:ConditionalSubject rdf:about="https://w3id.org/ride2rail/agreements#RWOPCHSubject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersAsNewTo rdf:resource="https://w3id.org/ride2rail/agreements#RWOPTSPTempEntry"/>
+                      </oasis:ConditionalSubject>
+                    </oasis:hasConditionalSubject>
+                  </oasis:ConditionalHeadAtom>
+                </oasis:hasConditionalHeadAtom>
+              </oasis:ConditionalHead>
+            </oasis:hasConditionalHead>
+          </oasis:Conditional>
+        </oasis:hasConditional>
+      </oasis:ConditionalSet>
+    </oasis:hasConditionalSet>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/agreements#MultimodalDiscountIncentive3">
+    <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#IncentiveSmartContract"/>
+    <rdfs:comment>An Incentive promoting multiple multimodal trips (at least three) through a DiscountVoucher.</rdfs:comment>
+    <rdfs:label>Multimodal discount incentive three times</rdfs:label>
+    <rdf:type rdf:resource="http://www.dmi.unict.it/oasis.owl#SmartContract"/>
+    <oasis:consistsOfSmartContractEntry>
+      <oasis:SmartContractEntryParticipant rdf:about="https://w3id.org/ride2rail/agreements#MDI3PassengerEntry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersAsNewTo>
+          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#MDI3PassengerTempEntry">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <rdf:type rdf:resource="https://w3id.org/mobility/osdm/core#Passenger"/>
+          </oasis:EntryTemplate>
+        </oasis:refersAsNewTo>
+      </oasis:SmartContractEntryParticipant>
+    </oasis:consistsOfSmartContractEntry>
+    <oasis:consistsOfSmartContractEntry>
+      <oasis:SmartContractEntryParticipant rdf:about="https://w3id.org/ride2rail/agreements#MDI3TSPEntry">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersAsNewTo>
+          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#MDI3TSPTempEntry">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <rdf:type rdf:resource="https://w3id.org/mobility/transmodel/organisations#Operator"/>
+          </oasis:EntryTemplate>
+        </oasis:refersAsNewTo>
+      </oasis:SmartContractEntryParticipant>
+    </oasis:consistsOfSmartContractEntry>
+    <oasis:hasConditionalSet>
+      <oasis:ConditionalSet rdf:about="https://w3id.org/ride2rail/agreements#MDI3Conditionals">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:hasConditional>
+          <oasis:Conditional rdf:about="https://w3id.org/ride2rail/agreements#MDI3Condition">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <oasis:hasConditionalBody>
+              <oasis:ConditionalBody rdf:about="https://w3id.org/ride2rail/agreements#MDI3ConditionalBody">
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                <oasis:hasConditionalBodyAtom>
+                  <oasis:ConditionalBodyAtom rdf:about="https://w3id.org/ride2rail/agreements#MDI3CBAtom">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                    <oasis:hasConditionalObject>
+                      <oasis:ConditionalObject rdf:about="https://w3id.org/ride2rail/agreements#MDI3CBObject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersExactlyTo>
+                          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#MDI3OfferTempEntry">
+                            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                            <rdf:type rdf:resource="https://w3id.org/mobility/osdm/core#Offer"/>
+                            <osdm:trip>
+                              <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/agreements#MDI3TripTempEntry">
+                                <rdf:type rdf:resource="https://w3id.org/mobility/osdm/core#Trip"/>
+                                <r2r:includesTravelEpisode rdf:resource="https://w3id.org/ride2rail/terms#MDI3RideLegTempEntry"/>
+                                <r2r:includesTravelEpisode>
+                                  <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#MDI3TripLegTempEntry">
+                                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                                    <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#TravelEpisode"/>
+                                    <owl:differentFrom rdf:resource="https://w3id.org/ride2rail/terms#MDI3RideLegTempEntry"/>
+                                    <r2r:operatedBy rdf:resource="https://w3id.org/ride2rail/agreements#MDI3TSPTempEntry"/>
+                                  </oasis:EntryTemplate>
+                                </r2r:includesTravelEpisode>
+                              </owl:NamedIndividual>
+                            </osdm:trip>
+                          </oasis:EntryTemplate>
+                        </oasis:refersExactlyTo>
+                      </oasis:ConditionalObject>
+                    </oasis:hasConditionalObject>
+                    <oasis:hasConditionalOperator>
+                      <oasis:ConditionalOperator rdf:about="https://w3id.org/ride2rail/agreements#MDI3CBOperator">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersExactlyTo rdf:resource="https://w3id.org/ride2rail/terms#book"/>
+                      </oasis:ConditionalOperator>
+                    </oasis:hasConditionalOperator>
+                    <oasis:hasConditionalOperatorArgument>
+                      <oasis:ConditionalOperatorArgument rdf:about="https://w3id.org/ride2rail/agreements#MDI3CBArgument">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersExactlyTo>
+                          <oasis:OperatorArgument rdf:about="https://w3id.org/ride2rail/agreements#threeTimes">
+                            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                          </oasis:OperatorArgument>
+                        </oasis:refersExactlyTo>
+                      </oasis:ConditionalOperatorArgument>
+                    </oasis:hasConditionalOperatorArgument>
+                    <oasis:hasConditionalSubject>
+                      <oasis:ConditionalSubject rdf:about="https://w3id.org/ride2rail/agreements#MDI3CBSubject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersAsNewTo rdf:resource="https://w3id.org/ride2rail/agreements#MDI3PassengerTempEntry"/>
+                      </oasis:ConditionalSubject>
+                    </oasis:hasConditionalSubject>
+                  </oasis:ConditionalBodyAtom>
+                </oasis:hasConditionalBodyAtom>
+              </oasis:ConditionalBody>
+            </oasis:hasConditionalBody>
+            <oasis:hasConditionalHead>
+              <oasis:ConditionalHead rdf:about="https://w3id.org/ride2rail/agreements#MDI3ConditionalHead">
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                <oasis:hasConditionalHeadAtom>
+                  <oasis:ConditionalHeadAtom rdf:about="https://w3id.org/ride2rail/agreements#MDI3CHAtom">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                    <oasis:hasConditionalObject>
+                      <oasis:ConditionalObject rdf:about="https://w3id.org/ride2rail/agreements#MDI3CHObject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersAsNewTo>
+                          <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/agreements#20PercDiscountVoucherTemplateEntry">
+                            <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#DiscountVoucher"/>
+                            <r2r:discountPercentage rdf:datatype=
+                            "http://www.w3.org/2001/XMLSchema#integer"
+                            >20</r2r:discountPercentage>
+                            <r2r:issuedBy rdf:resource="https://w3id.org/ride2rail/agreements#MDI3TSPTempEntry"/>
+                            <r2r:issuedTo rdf:resource="https://w3id.org/ride2rail/agreements#MDI3PassengerTempEntry"/>
+                          </owl:NamedIndividual>
+                        </oasis:refersAsNewTo>
+                      </oasis:ConditionalObject>
+                    </oasis:hasConditionalObject>
+                    <oasis:hasConditionalOperator>
+                      <oasis:ConditionalOperator rdf:about="https://w3id.org/ride2rail/agreements#MDI3CHOperator">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersExactlyTo rdf:resource="https://w3id.org/ride2rail/terms#issue"/>
+                      </oasis:ConditionalOperator>
+                    </oasis:hasConditionalOperator>
+                    <oasis:hasConditionalSubject>
+                      <oasis:ConditionalSubject rdf:about="https://w3id.org/ride2rail/agreements#MDI3CHSubject">
+                        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                        <oasis:refersAsNewTo rdf:resource="https://w3id.org/ride2rail/agreements#MDI3TSPTempEntry"/>
+                      </oasis:ConditionalSubject>
+                    </oasis:hasConditionalSubject>
+                  </oasis:ConditionalHeadAtom>
+                </oasis:hasConditionalHeadAtom>
+              </oasis:ConditionalHead>
+            </oasis:hasConditionalHead>
+          </oasis:Conditional>
+        </oasis:hasConditional>
+      </oasis:ConditionalSet>
+    </oasis:hasConditionalSet>
+  </owl:NamedIndividual>
+  <oasis:ConditionalBodyAtom rdf:about="https://w3id.org/ride2rail/agreements#RWOPCBOAtom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <oasis:hasConditionalObject>
+      <oasis:ConditionalObject rdf:about="https://w3id.org/ride2rail/agreements#RWOPCBOObject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersAsNewTo rdf:resource="https://w3id.org/ride2rail/agreements#RWOPRideTempEntry"/>
+      </oasis:ConditionalObject>
+    </oasis:hasConditionalObject>
+    <oasis:hasConditionalOperator>
+      <oasis:ConditionalOperator rdf:about="https://w3id.org/ride2rail/agreements#RWOPCBOOperator">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersExactlyTo rdf:resource="https://w3id.org/ride2rail/terms#book"/>
+      </oasis:ConditionalOperator>
+    </oasis:hasConditionalOperator>
+    <oasis:hasConditionalSubject>
+      <oasis:ConditionalSubject rdf:about="https://w3id.org/ride2rail/agreements#RWOPCBOSubject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <oasis:refersExactlyTo>
+          <oasis:EntryTemplate rdf:about="https://w3id.org/ride2rail/agreements#RWOPOtherPassengerTempEntry">
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+            <rdf:type rdf:resource="https://w3id.org/mobility/osdm/core#Passenger"/>
+            <owl:differentFrom rdf:resource="https://w3id.org/ride2rail/agreements#RWOPPassengerTempEntry"/>
+          </oasis:EntryTemplate>
+        </oasis:refersExactlyTo>
+      </oasis:ConditionalSubject>
+    </oasis:hasConditionalSubject>
+  </oasis:ConditionalBodyAtom>
+</rdf:RDF>
