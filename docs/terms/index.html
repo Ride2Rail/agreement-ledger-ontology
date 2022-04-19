@@ -67,8 +67,9 @@ $(function(){
 <dd>Marco Comerio (<a href="https://www.cefriel.com/">Cefriel</a>)</dd>
 
 <dt>Download serialization:</dt><dd><span><a href="../../ontology/latest/r2r-terms.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="../../ontology/latest/r2r-terms.rdf" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="../../ontology/latest/r2r-terms.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="../../ontology/latest/r2r-terms.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-CC BY 4.0-blue.svg" alt="https://creativecommons.org/licenses/by/4.0/" /></a>
-</dd><dt>Evaluation:</dt><dd><a href="../../evaluation/oops/oops.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluation-OOPS! Evaluation-yellow.svg" alt="OOPS! Evaluation" /></a></dd><dt>Cite as:</dt>
-<dd>Mario Scrocca (Cefriel). Ride2Rail Agreement Ledger Ontology. Revision: 1.0.0.</dd>
+</dd>
+<!-- <dt>Evaluation:</dt><dd><a href="../../evaluation/oops/oops.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluation-OOPS! Evaluation-yellow.svg" alt="OOPS! Evaluation" /></a></dd>--><dt>Cite as:</dt>
+<dd>Mario Scrocca (Cefriel), Marco Comerio (Cefriel). Ride2Rail Agreement Ledger Ontology. Revision: 1.0.0.</dd>
 </dl>
 
 <hr/>
@@ -85,7 +86,15 @@ Ontology describing the basic terms introduced by Ride2Rail for the modelling of
 <!--INTRODUCTION SECTION-->
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
-This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+The *Ride2Rail Agreement Ledger Ontology* supports the interoperability of the [Ride2Rail](https://ride2rail.eu/) solution, addressing ridesharing use cases, within the [Shift2Rail Innovation Program 4](https://shift2rail.org/research-development/ip4/), where the main scenario targets a user looking for a door-to-door multimodal travel solution. The purpose of the *Ride2Rail Agreement Ledger Ontology* is to enable a *semantic description* of the smart contracts implemented through a distributed ledger considering the relevant domain terminology.
+
+The first version of the *Ride2Rail Ontology for Agreements* aims at identifying a set of classes and properties to represent the following agreements between parties:
+
+- The *Ridesharing Booking*, as an agreement for a shared ride between a driver and a passenger
+- The *Incentives*, as an agreement between different parties to grant incentives according to a set of conditions.
+
+The ontology requirements specification and additional material on the ontology is available in the related [repository](https://github.com/Ride2Rail/agreement-ledger-ontology). 
+</span>
 <div id="namespacedeclarations">
 <h3 id="ns" class="list">Namespace declarations</h3>
 <div id="ns" align="center">
@@ -110,7 +119,6 @@ This is a place holder text for the introduction. The introduction should briefl
 </div>
 </div>
   
-
 <!--OVERVIEW SECTION-->
     <div id="overview"><h2 id="overv" class="list">Ride2Rail Agreement Ledger Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
@@ -226,7 +234,85 @@ This ontology has the following classes and properties.</span>
 <!--DESCRIPTION SECTION-->
     <div id="description"><h2 id="desc" class="list">Ride2Rail Agreement Ledger Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
-This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</span>
+This section presents the classes and properties defined by the  *Ride2Rail Agreement Ledger Ontology* and discusses examples of usage considering the agreements modelled within the Ride2Rail project.
+</span>
+
+<h3 id="reused" class="list">Reused Vocabularies</h3>
+
+<span class="markdown">
+The *Ontology for Agents, Systems, and Integration of Services* (OASIS), published online with the namespace [http://www.dmi.unict.it/oasis.owl#](http://www.dmi.unict.it/oasis.owl) (*oasis:* prefix), defines the concept of ontological smart contract (*oasis:SmartContract*) as an entity to define agreements between agents and specify their terms independently from the specific implementation.
+
+The *IP4 ontologies*, currently under development ([repository](https://github.com/oeg-upm/mobility)), identify the relevant terminology in the considered domain and a shared semantic for other IP4 stakeholders. In particular, the following classes are extended:
+  - *osdm:Offer*: defined in IP4 as “a response to a customer mobility request as a result of the travel shopping process composed by: (i) an Itinerary Offer for a service or services designed to cover each proposed journey, and, optionally, (ii) an offer for ancillary services”.
+  - *osdm:Booking*: defined in IP4 as “an operational process as part of the sales process to commit to a sales transaction binding the customer and supplier to the offer”. 
+</span>
+
+<h3 id="ontology" class="list">Ontology</h3>
+
+<span class="markdown">
+To describe the *Ride2Rail Agreement Ledger Ontology* a diagram representing the ontology according to the *[Chowlk](https://chowlk.linkeddata.es/)* graphical notation is discussed. The diagram represents the classes and properties modelled and their relations with reused vocabularies.
+
+The ontology reuses *oasis:SmartContract* as the class to model an agreement, the entities involved and the terms of the agreement. The main objective of the ontology is to provide the needed terminology, extending the IP4 ontologies, to model ontological smart contracts, as specified in the OASIS ontology, for the ridesharing use cases considered within the Ride2Rail project.
+</span>
+
+<p align="center"><img src="../diagrams/r2r-terms.png" alt="Ride2Rail ontology" height="500" style="margin: 2rem 0;"></p>
+
+<h4 id="rb" class="list">Ridesharing Booking</h4>
+
+<span class="markdown">
+To support the modelling of a *oasis:SmartContract* for a ridesharing booking, the class *r2r:RidesharingBooking* is defined as a subclass of *osdm:Booking.* An *osdm:Booking* is associated with the booked *osdm:Offer* and the *osdm:Price* paid for the offer. *An osdm:Offer* represents the pair between a computed *osdm:Trip* and the set of products (*osdm:OfferPart*) offered to an *osdm:Passenger* and required to perform the trip.
+
+The ontology extends the concept of *osdm:Offer* defining an *r2r:OfferItem* to model the corresponding term in the IP4 glossary: “An Offer Item is part of an Offer, which is provided by a single TSP”. As a result, *r2r:RidesharingBooking* is associated with an *r2r:OfferItem* provided by a ridesharing TSP, i.e., the Crowd-based TSP in Ride2Rail.
+The ontology also defines two classes, *r2r:TravelEpisode* and *r2r:TransportationService,* to model, respectively, the IP4 concepts of Travel Episode (“Part of a Trip operated with the same vehicle”) and Transportation Service (“Service that provides transportation on a TravelEpisode”). An *osdm:Trip* may include multiple *r2r:TravelEpisode* (possibly aligned with the concept of *osdm:Segment*), an *r2r:TravelEpisode* may be operated by an *r2r:TransportationService*. 
+ An *r2r:OfferItem* for an *r2r:RidesharingBooking*, is associated with *an r2r:RidesharingLeg* (subclass of *r2r:TravelEpisode*) that is made possible through an *r2r:Ride* (subclass of *r2r:TransportationService*) operated by an r2r:Driver. In this sense, *r2r:Driver* extends the concept of *tmorg:Operator*.
+
+A *r2r:Ride* may specify an *r2r:InventoryAllocation* that indicates a given quantity of available consumables (*r2r:Consumable*). The ontology defines *r2r:Seat* as an individual of the class *r2r:Consumable*. An *r2r:InventoryReservation* (subclass of *osdm:Reservation*) can be associated with an *r2r:OfferItem* defining the number of consumables reserved by the corresponding booking.
+</span>
+
+<h4 id="incentives" class="list">Incentives</h4>
+
+<span class="markdown">
+To support the modelling of incentives, the class *r2r:IncentiveSmartContract* is defined as subclass of *oasis:SmarContract*. The ontology also models the concept of *r2r:Voucher* to define a redeemable good issued by a *tmorg:Organisation*. Two subclasses are defined for *r2r:Voucher* to model the mechanisms of the incentives implemented in Ride2Rail: a *r2r:DiscountVoucher* allowing to model a certain percentage of discount granted to the beneficiary of the voucher, and a *r2r:SeatUpgradeVoucher* granting an upgrade of seat class for the beneficiary.
+To express the incentive conditions defined in the requirements, the ontology also defines two *oasis:Action* individuals, *r2r:issue* and *r2r:book*, that can be used as *oasis:ConditionalOperator* in the modelling of conditionals for an *oasis:SmartContract*.
+</span>
+
+<h4 id="incentives" class="list">Ridesharing Booking Events</h4>
+
+<span class="markdown">
+To model the events that can be associated with a ridesharing booking we decided to implement an *r2r:RidesharingBookingEvent* SKOS taxonomy.
+
+As defined in the requirements, five events are identified in the first level of the taxonomy: *r2r:RidesharingStarted* for the start of the ride associated with the ridesharing booking*, r2r:RidesharingCompleted* for the completion of the ride associated with the ridesharing booking, *r2r:RidesharingCancelled* for the cancellation of the ridesharing booking by the passenger or by the driver, *r2r:RidesharingDelayed* for a delay in the ride due to the passenger or to the driver*, r2r:RidesharingNoShow* for a passenger or a driver not showing as expected for the booked ridesharing.
+</span>
+
+<p align="center"><img src="../diagrams/rb-events.png" alt="Ridesharing Booking Events" height="800" style="margin: 2rem 0;"></p>
+
+<h3 id="examples" class="list">Ride2Rail Agreements</h3>
+
+<span class="markdown">
+This section exemplifies the intedend usage of the ontology discussing the RDF representation of the contracts implemented through the Agreement Ledger Module in the Ride2Rail project: Ridesharing booking, Ride with other passengers, Multimodal discount, Multimodal repetition discount.
+
+The RDF serialisation of the agreements is available at [https://w3id.org/ride2rail/agreements#](https://w3id.org/ride2rail/agreements) (*ag:* prefix).
+
+The first agreement is the *ag:RidesharingBookingSmartContract* ([diagram](https://github.com/Ride2Rail/agreement-ledger-ontology/tree/main/docs/diagrams/ridesharing-booking.png)) that defines the entities associated with a ridesharing booking and their relations. A *ag:RidesharingBookingSmartContract* involves an *r2r:Driver* and an *osdm:Passenger* as participants in an *r2r:RidesharingBooking*. The agreement specifies that the *r2r:RidesharingBooking* is associated with an *r2r:OfferItem* for the passenger, that have a specific *osdm:Price,* that is associated with an *r2r:RidesharingLeg*, and that includes an *r2r:InventoryReservation.* The *r2r:RidesharingLeg* has as transportation service an *r2r:Ride* offered by the driver with a specific *r2r:InventoryAllocation*.
+</span>
+
+<p align="center"><img src="../diagrams/ridesharing-booking.png" alt="RidesharingBookingSmartContract agreement" height="450" style="margin: 2rem 0;"></p>
+
+<span class="markdown">
+The *ag:RidesharingBookingSmartContract* does not define any *oasis:Conditional* since the terms of the agreement are not directly modelled through the Agreement Ledger module. As shown in the table, examples of *oasis:Conditional* can be defined exploiting the Ride2Rail ontology for agreements, in particular, leveraging the ridesharing booking events taxonomy. Example 1 describes the fact that the money from the passenger should be transferred to the driver if the ride is correctly started and ended, examples 2 and 3 describe potential refund policies if the driver doesn’t show or cancels the ride.
+</span>
+
+<p align="center"><img src="img/examples-rb-events.png" alt="Example of oasis:Conditional for a ridesharing booking smart contract" height="400" style="margin: 2rem 0;"></p>
+
+<span class="markdown">
+The Agreement Ledger Module implemented in Ride2Rail defines three agreements related to incentives, i.e., three *r2r:IncentiveSmartContract*: Ride with other passengers (*ag:RideWithOtherPassengersIncentive*), Multimodal discount (*ag:* *MultimodalDiscountIncentive*), Multimodal repetition discount (ag:*MultimodalDiscountIncentive3*).
+The table summarises the defined agreement reporting the *oasis:SmartContractEntry* involved and the modelled *oasis:Conditional*. As indicated below, a Chowlk diagram is provided in the ontology repository for each *oasis:SmartContract* modelled. All the agreements are between an *osdm:Passenger* and a *tmorg:Operator,* then:
+- *ag:RideWithOtherPassengersIncentive* ([diagram](https://github.com/Ride2Rail/agreement-ledger-ontology/tree/main/docs/diagrams/rwop-incentive.png)) defines as a conditional that if the passenger books a ride also booked by another passenger, then the TSP issues an *r2r:SeatUpgradeVoucher* to the passenger;
+- *ag:MultimodalDiscountIncentive* ([diagram](https://github.com/Ride2Rail/agreement-ledger-ontology/tree/main/docs/diagrams/mdi-incentive.png)) defines as a conditional that if the passenger books a multimodal ride involving an *r2r:RidesharingLeg* and at least another leg, then the TSP issues an *r2r:DiscountVoucher* of 10% to the passenger;
+- *ag:MultimodalDiscountIncentive3* ([diagram](https://github.com/Ride2Rail/agreement-ledger-ontology/tree/main/docs/diagrams/mdi3-incentive.png)) defines as a conditional that if the passenger books a multimodal ride involving an r2r:RidesharingLeg and at least another leg for three times, then the TSP issues an r2r:DiscountVoucher of 20% to the passenger.
+</span>
+
+<p align="center"><img src="img/incentives.png" alt="IncentiveSmartContract implemented in Ride2Rail" height="400" style="margin: 2rem 0;"></p>
 
 </div>
    
@@ -1003,18 +1089,11 @@ This section provides details for each class and property defined by Ride2Rail A
 </div>
 </div>
     
-
-<!--REFERENCES SECTION-->
-  <div id="references">
-<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">
-Add your references here. It is recommended to have them as a list.</span>
-
 </div>
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <p>
-The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+The ontology engineering activities were supported by the RIDE2RAIL project (Grant Agreement 881825), co-funded by the European Commission under the Horizon 2020 Framework Programme. The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
 </div>
 
 
