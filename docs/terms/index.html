@@ -93,7 +93,9 @@ The first version of the *Ride2Rail Agreement Ledger Ontology* aims at identifyi
 - The *Ridesharing Booking*, as an agreement for a shared ride between a driver and a passenger
 - The *Incentives*, as an agreement between different parties to grant incentives according to a set of conditions.
 
-The ontology requirements specification and additional material on the ontology is available in the related [repository](https://github.com/Ride2Rail/agreement-ledger-ontology). 
+The ontology requirements specification and additional material on the ontology is available in the related [repository](https://github.com/Ride2Rail/agreement-ledger-ontology).
+
+The ontology is complemented by a SKOS taxonomy for *ridesharing booking events* available at [https://w3id.org/ride2rail/rb-events](https://w3id.org/ride2rail/terms).
 </span>
 <div id="namespacedeclarations">
 <h3 id="ns" class="list">Namespace declarations</h3>
@@ -279,7 +281,7 @@ To express the incentive conditions defined in the requirements, the ontology al
 <h4 id="incentives" class="list">Ridesharing Booking Events</h4>
 
 <span class="markdown">
-To model the events that can be associated with a ridesharing booking we decided to implement an *r2r:RidesharingBookingEvent* SKOS taxonomy.
+To model the events that can be associated with a ridesharing booking we decided to implement an *r2r:RidesharingBookingEvent* SKOS taxonomy published at [https://w3id.org/ride2rail/rb-events](https://w3id.org/ride2rail/terms).
 
 As defined in the requirements, five events are identified in the first level of the taxonomy: *r2r:RidesharingStarted* for the start of the ride associated with the ridesharing booking*, r2r:RidesharingCompleted* for the completion of the ride associated with the ridesharing booking, *r2r:RidesharingCancelled* for the cancellation of the ridesharing booking by the passenger or by the driver, *r2r:RidesharingDelayed* for a delay in the ride due to the passenger or to the driver*, r2r:RidesharingNoShow* for a passenger or a driver not showing as expected for the booked ridesharing.
 </span>
@@ -309,7 +311,7 @@ The Agreement Ledger Module implemented in Ride2Rail defines three agreements re
 The table summarises the defined agreement reporting the *oasis:SmartContractEntry* involved and the modelled *oasis:Conditional*. As indicated below, a Chowlk diagram is provided in the ontology repository for each *oasis:SmartContract* modelled. All the agreements are between an *osdm:Passenger* and a *tmorg:Operator,* then:
 - *ag:RideWithOtherPassengersIncentive* ([diagram](https://github.com/Ride2Rail/agreement-ledger-ontology/tree/main/docs/diagrams/rwop-incentive.png)) defines as a conditional that if the passenger books a ride also booked by another passenger, then the TSP issues an *r2r:SeatUpgradeVoucher* to the passenger;
 - *ag:MultimodalDiscountIncentive* ([diagram](https://github.com/Ride2Rail/agreement-ledger-ontology/tree/main/docs/diagrams/mdi-incentive.png)) defines as a conditional that if the passenger books a multimodal ride involving an *r2r:RidesharingLeg* and at least another leg, then the TSP issues an *r2r:DiscountVoucher* of 10% to the passenger;
-- *ag:MultimodalDiscountIncentive3* ([diagram](https://github.com/Ride2Rail/agreement-ledger-ontology/tree/main/docs/diagrams/mdi3-incentive.png)) defines as a conditional that if the passenger books a multimodal ride involving an r2r:RidesharingLeg and at least another leg for three times, then the TSP issues an r2r:DiscountVoucher of 20% to the passenger.
+- *ag:MultimodalDiscountIncentive3* ([diagram](https://github.com/Ride2Rail/agreement-ledger-ontology/tree/main/docs/diagrams/mdi3-incentive.png)) defines as a conditional that if the passenger books a multimodal ride involving an *r2r:RidesharingLeg* and at least another leg for three times, then the TSP issues an r2r:DiscountVoucher of 20% to the passenger.
 </span>
 
 <p align="center"><img src="img/incentives.png" alt="IncentiveSmartContract implemented in Ride2Rail" height="400" style="margin: 2rem 0;"></p>
