@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos1="http://www.owl-ontologies.com/skos#">
+    <Ontology/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+
+    <AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/license -->
+
+
+    <AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+
+    <AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/skos#broader -->
+
+
+    <AnnotationProperty rdf:about="http://www.owl-ontologies.com/skos#broader"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/skos#definition -->
+
+
+    <AnnotationProperty rdf:about="http://www.owl-ontologies.com/skos#definition"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/skos#hasTopConcept -->
+
+
+    <AnnotationProperty rdf:about="http://www.owl-ontologies.com/skos#hasTopConcept"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/skos#inScheme -->
+
+
+    <AnnotationProperty rdf:about="http://www.owl-ontologies.com/skos#inScheme"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/skos#narrower -->
+
+
+    <AnnotationProperty rdf:about="http://www.owl-ontologies.com/skos#narrower"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/skos#prefLabel -->
+
+
+    <AnnotationProperty rdf:about="http://www.owl-ontologies.com/skos#prefLabel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.owl-ontologies.com/skos#Concept -->
+
+
+    <Class rdf:about="http://www.owl-ontologies.com/skos#Concept"/>
+    
+
+
+    <!-- http://www.owl-ontologies.com/skos#ConceptScheme -->
+
+
+    <Class rdf:about="http://www.owl-ontologies.com/skos#ConceptScheme"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#ConceptScheme"/>
+        <dc:creator>Mario Scrocca (Cefriel)</dc:creator>
+        <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <dc:title xml:lang="en">Events for a Ridesharing Booking</dc:title>
+        <skos1:hasTopConcept rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingCancelled"/>
+        <skos1:hasTopConcept rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingCompleted"/>
+        <skos1:hasTopConcept rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingDelayed"/>
+        <skos1:hasTopConcept rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingNoShow"/>
+        <skos1:hasTopConcept rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingStarted"/>
+        <skos1:prefLabel xml:lang="en">Ridesharing Booking Events</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingCancelled -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingCancelled">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:definition>The booked ridesharing is cancelled</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:narrower rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver"/>
+        <skos1:narrower rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger"/>
+        <skos1:prefLabel>Ridesharing cancelled</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:broader rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingCancelled"/>
+        <skos1:definition>The booked ridesharing is cancelled by the driver</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:prefLabel>Ridesharing cancelled by driver</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:broader rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingCancelled"/>
+        <skos1:definition>The booked ridesharing is cancelled by the passenger</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:prefLabel>Ridesharing cancelled by passenger</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingCompleted -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingCompleted">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:definition>The booked ridesharing is completed</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:prefLabel>Ridesharing completed</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingDelayed -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingDelayed">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:definition>The booked ridesharing is delayed</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:narrower rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver"/>
+        <skos1:narrower rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger"/>
+        <skos1:prefLabel>Ridesharing delayed</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:broader rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingDelayed"/>
+        <skos1:definition>The booked ridesharing is delayed because of the driver</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:prefLabel>Ridesharing delayed by driver</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:broader rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingDelayed"/>
+        <skos1:definition>The booked ridesharing is delayed because of thee passenger</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:prefLabel>Ridesharing delayed by passenger</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingNoShow -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingNoShow">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:definition>The booked ridesharing can not be performed because one of the involved actors didn&apos;t arrive</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:narrower rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver"/>
+        <skos1:narrower rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger"/>
+        <skos1:prefLabel>Ridesharing no show</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:broader rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingNoShow"/>
+        <skos1:definition>The booked ridesharing can not be performed because the driver didn&apos;t show</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:prefLabel>Ridesharing no show by driver</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:broader rdf:resource="https://w3id.org/ride2rail/rb-events#RidesharingNoShow"/>
+        <skos1:definition>The booked ridesharing can not be performed because the passenger didn&apos;t show</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:prefLabel>Ridesharing no show by passenger</skos1:prefLabel>
+    </NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/rb-events#RidesharingStarted -->
+
+
+    <NamedIndividual rdf:about="https://w3id.org/ride2rail/rb-events#RidesharingStarted">
+        <rdf:type rdf:resource="http://www.owl-ontologies.com/skos#Concept"/>
+        <skos1:definition>The booked ridesharing is started</skos1:definition>
+        <skos1:inScheme rdf:resource="https://w3id.org/ride2rail/rb-events"/>
+        <skos1:prefLabel>Ridesharing started</skos1:prefLabel>
+    </NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

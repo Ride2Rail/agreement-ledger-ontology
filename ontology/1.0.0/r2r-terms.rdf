@@ -1,0 +1,503 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/ride2rail/terms#"
+     xml:base="https://w3id.org/ride2rail/terms"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/ride2rail/terms#">
+        <dc:creator>Mario Scrocca (Cefriel)</dc:creator>
+        <dc:description>Ontology describing the basic terms introduced by Ride2Rail for the modelling of smart contracts in the ledger module.</dc:description>
+        <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <dc:title>Ride2Rail Agreement Ledger Ontology</dc:title>
+        <owl:versionInfo>1.0.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#consumable -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ride2rail/terms#consumable">
+        <rdfs:domain rdf:resource="https://w3id.org/ride2rail/terms#InventoryAllocation"/>
+        <rdfs:range rdf:resource="https://w3id.org/ride2rail/terms#Consumable"/>
+        <rdfs:comment>Specify the type of Consumable associated with an InventoryAllocation.</rdfs:comment>
+        <rdfs:label>consumable</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#coversTravelEpisode -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ride2rail/terms#coversTravelEpisode">
+        <rdfs:domain rdf:resource="https://w3id.org/mobility/osdm/core#Offer"/>
+        <rdfs:range rdf:resource="https://w3id.org/ride2rail/terms#TravelEpisode"/>
+        <rdfs:comment>Specify a TravelEpisode covered by an Offer.</rdfs:comment>
+        <rdfs:label>covers travel episode</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#hasOfferItem -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ride2rail/terms#hasOfferItem">
+        <rdfs:domain rdf:resource="https://w3id.org/mobility/osdm/core#Offer"/>
+        <rdfs:range rdf:resource="https://w3id.org/ride2rail/terms#OfferItem"/>
+        <rdfs:comment>An OfferItem composing an Offer.</rdfs:comment>
+        <rdfs:label>has offer item</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#hasRidesharingEvent -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ride2rail/terms#hasRidesharingEvent">
+        <rdfs:domain rdf:resource="https://w3id.org/ride2rail/terms#RidesharingBooking"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:comment>Associates a RidesharingBooking with a RidesharingBookingEvent.</rdfs:comment>
+        <rdfs:label>has ridesharing event</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#hasTransportationService -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ride2rail/terms#hasTransportationService">
+        <rdfs:domain rdf:resource="https://w3id.org/ride2rail/terms#TravelEpisode"/>
+        <rdfs:range rdf:resource="https://w3id.org/ride2rail/terms#TransportationService"/>
+        <rdfs:comment>Associates a TravelEpisode with a TransportationService enabling it.</rdfs:comment>
+        <rdfs:label>has transportation service</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#includesTravelEpisode -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ride2rail/terms#includesTravelEpisode">
+        <rdfs:domain rdf:resource="https://w3id.org/mobility/osdm/core#Trip"/>
+        <rdfs:range rdf:resource="https://w3id.org/ride2rail/terms#TravelEpisode"/>
+        <rdfs:comment>Associates a Trip with a TravelEpisode included in it.</rdfs:comment>
+        <rdfs:label>includes travel episode</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#inventoryAllocation -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ride2rail/terms#inventoryAllocation">
+        <rdfs:range rdf:resource="https://w3id.org/ride2rail/terms#InventoryAllocation"/>
+        <rdfs:comment>Associates an InventoryAllocation.</rdfs:comment>
+        <rdfs:label>inventory allocation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#issuedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ride2rail/terms#issuedBy">
+        <rdfs:comment>Associates the subject with the Organisation issuing it.</rdfs:comment>
+        <rdfs:label>issued by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#issuedTo -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ride2rail/terms#issuedTo">
+        <rdfs:comment>Associates the subject with the entity that is entitled to use the issued object.</rdfs:comment>
+        <rdfs:label>issued to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#operatedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/ride2rail/terms#operatedBy">
+        <rdfs:domain rdf:resource="https://w3id.org/ride2rail/terms#TransportationService"/>
+        <rdfs:range rdf:resource="https://w3id.org/mobility/transmodel/organisations#Operator"/>
+        <rdfs:comment>Associates a TransportationService with the Operator that performs it.</rdfs:comment>
+        <rdfs:label>operated by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#discountPercentage -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/ride2rail/terms#discountPercentage">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>Specify the percentage of discount.</rdfs:comment>
+        <rdfs:label>discount percentage</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#quantity -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/ride2rail/terms#quantity">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>Specify the quantity.</rdfs:comment>
+        <rdfs:label>quantity</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.dmi.unict.it/oasis.owl#Action -->
+
+
+    <owl:Class rdf:about="http://www.dmi.unict.it/oasis.owl#Action"/>
+    
+
+
+    <!-- http://www.dmi.unict.it/oasis.owl#SmartContract -->
+
+
+    <owl:Class rdf:about="http://www.dmi.unict.it/oasis.owl#SmartContract"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    
+
+
+    <!-- https://w3id.org/mobility/osdm/core#Booking -->
+
+
+    <owl:Class rdf:about="https://w3id.org/mobility/osdm/core#Booking"/>
+    
+
+
+    <!-- https://w3id.org/mobility/osdm/core#Offer -->
+
+
+    <owl:Class rdf:about="https://w3id.org/mobility/osdm/core#Offer"/>
+    
+
+
+    <!-- https://w3id.org/mobility/osdm/core#Reservation -->
+
+
+    <owl:Class rdf:about="https://w3id.org/mobility/osdm/core#Reservation"/>
+    
+
+
+    <!-- https://w3id.org/mobility/osdm/core#Trip -->
+
+
+    <owl:Class rdf:about="https://w3id.org/mobility/osdm/core#Trip"/>
+    
+
+
+    <!-- https://w3id.org/mobility/transmodel/organisations#Operator -->
+
+
+    <owl:Class rdf:about="https://w3id.org/mobility/transmodel/organisations#Operator"/>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#Consumable -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#Consumable">
+        <rdfs:comment>A type of entity that can be listed in an InventoryAllocation and can be consumed performing a InventoryAllocation.</rdfs:comment>
+        <rdfs:label>Consumable</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#DiscountVoucher -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#DiscountVoucher">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ride2rail/terms#Voucher"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ride2rail/terms#discountPercentage"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A voucher associated with a discount on the next purchase.</rdfs:comment>
+        <rdfs:label>Discount Voucher</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#Driver -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#Driver">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/mobility/transmodel/organisations#Operator"/>
+        <rdfs:comment>A person offering a Ride for passengers covering a specific itinerary.</rdfs:comment>
+        <rdfs:label>Driver</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#IncentiveSmartContract -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#IncentiveSmartContract">
+        <rdfs:subClassOf rdf:resource="http://www.dmi.unict.it/oasis.owl#SmartContract"/>
+        <rdfs:comment>Type of SmartContract defining incentives (providers, mechanisms, conditions).</rdfs:comment>
+        <rdfs:label>Incentive Smart Contract</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#InventoryAllocation -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#InventoryAllocation">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ride2rail/terms#quantity"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An InventoryAllocation describes a set of Consumables that can be reserved.</rdfs:comment>
+        <rdfs:label>Inventory Allocation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#InventoryReservation -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#InventoryReservation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/mobility/osdm/core#Reservation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/ride2rail/terms#quantity"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The reservation associated with an InventoryAllocation.</rdfs:comment>
+        <rdfs:label>Inventory Reservation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#OfferItem -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#OfferItem">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/mobility/osdm/core#Offer"/>
+        <rdfs:label>Offer Item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#Ride -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#Ride">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ride2rail/terms#TransportationService"/>
+        <rdfs:comment>A service offered by a Driver for passengers on a specific itinerary.</rdfs:comment>
+        <rdfs:label>Ride</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#RidesharingBooking -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#RidesharingBooking">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/mobility/osdm/core#Booking"/>
+        <rdfs:comment>A Booking associated with an OfferItem for a Ridesharing Leg.</rdfs:comment>
+        <rdfs:label>Ridesharing Booking</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#RidesharingLeg -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#RidesharingLeg">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ride2rail/terms#TravelEpisode"/>
+        <rdfs:comment>A Travel Episode associated with a Ride.</rdfs:comment>
+        <rdfs:label>Ridesharing Leg</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#SeatUpgradeVoucher -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#SeatUpgradeVoucher">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/ride2rail/terms#Voucher"/>
+        <rdfs:comment>A Voucher associated with a seat upgrade for the next purchase.</rdfs:comment>
+        <rdfs:label>Seat Upgrade Voucher</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#TransportationService -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#TransportationService">
+        <rdfs:comment>Service that provides transportation on a TravelEpisode.</rdfs:comment>
+        <rdfs:label>Transportation Service</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#TravelEpisode -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#TravelEpisode">
+        <rdfs:comment>Part of a Trip, characterized by departure at a start point and arrival at the end point and operated with the same vehicle.</rdfs:comment>
+        <rdfs:label>Travel Episode</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#Voucher -->
+
+
+    <owl:Class rdf:about="https://w3id.org/ride2rail/terms#Voucher">
+        <rdfs:comment>A bond for a redeemable good or benefit.</rdfs:comment>
+        <rdfs:label>Voucher</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#Seats -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/terms#Seats">
+        <rdf:type rdf:resource="https://w3id.org/ride2rail/terms#Consumable"/>
+        <rdfs:comment>Type of Consumable describing seats in a vehicle.</rdfs:comment>
+        <rdfs:label>Seats</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#book -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/terms#book">
+        <rdf:type rdf:resource="http://www.dmi.unict.it/oasis.owl#Action"/>
+        <rdfs:comment>Action representing a booking process.</rdfs:comment>
+        <rdfs:label>book</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/ride2rail/terms#issue -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/ride2rail/terms#issue">
+        <rdf:type rdf:resource="http://www.dmi.unict.it/oasis.owl#Action"/>
+        <rdfs:comment>Action representing an issuing process.</rdfs:comment>
+        <rdfs:label>issue</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

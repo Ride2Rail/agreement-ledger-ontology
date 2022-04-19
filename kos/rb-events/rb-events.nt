@@ -1,0 +1,164 @@
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/license
+<http://purl.org/dc/elements/1.1/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.owl-ontologies.com/skos#broader
+<http://www.owl-ontologies.com/skos#broader> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.owl-ontologies.com/skos#definition
+<http://www.owl-ontologies.com/skos#definition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.owl-ontologies.com/skos#hasTopConcept
+<http://www.owl-ontologies.com/skos#hasTopConcept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.owl-ontologies.com/skos#inScheme
+<http://www.owl-ontologies.com/skos#inScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.owl-ontologies.com/skos#narrower
+<http://www.owl-ontologies.com/skos#narrower> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.owl-ontologies.com/skos#prefLabel
+<http://www.owl-ontologies.com/skos#prefLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.owl-ontologies.com/skos#Concept
+<http://www.owl-ontologies.com/skos#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.owl-ontologies.com/skos#ConceptScheme
+<http://www.owl-ontologies.com/skos#ConceptScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/ride2rail/rb-events
+<https://w3id.org/ride2rail/rb-events> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#ConceptScheme> .
+<https://w3id.org/ride2rail/rb-events> <http://purl.org/dc/elements/1.1/creator> "Mario Scrocca (Cefriel)" .
+<https://w3id.org/ride2rail/rb-events> <http://purl.org/dc/elements/1.1/license> <https://creativecommons.org/licenses/by/4.0/> .
+<https://w3id.org/ride2rail/rb-events> <http://purl.org/dc/elements/1.1/title> "Events for a Ridesharing Booking"@en .
+<https://w3id.org/ride2rail/rb-events> <http://www.owl-ontologies.com/skos#hasTopConcept> <https://w3id.org/ride2rail/rb-events#RidesharingCancelled> .
+<https://w3id.org/ride2rail/rb-events> <http://www.owl-ontologies.com/skos#hasTopConcept> <https://w3id.org/ride2rail/rb-events#RidesharingCompleted> .
+<https://w3id.org/ride2rail/rb-events> <http://www.owl-ontologies.com/skos#hasTopConcept> <https://w3id.org/ride2rail/rb-events#RidesharingDelayed> .
+<https://w3id.org/ride2rail/rb-events> <http://www.owl-ontologies.com/skos#hasTopConcept> <https://w3id.org/ride2rail/rb-events#RidesharingNoShow> .
+<https://w3id.org/ride2rail/rb-events> <http://www.owl-ontologies.com/skos#hasTopConcept> <https://w3id.org/ride2rail/rb-events#RidesharingStarted> .
+<https://w3id.org/ride2rail/rb-events> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing Booking Events"@en .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingCancelled
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelled> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelled> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing is cancelled" .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelled> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelled> <http://www.owl-ontologies.com/skos#narrower> <https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelled> <http://www.owl-ontologies.com/skos#narrower> <https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelled> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing cancelled" .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver> <http://www.owl-ontologies.com/skos#broader> <https://w3id.org/ride2rail/rb-events#RidesharingCancelled> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing is cancelled by the driver" .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledDriver> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing cancelled by driver" .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger> <http://www.owl-ontologies.com/skos#broader> <https://w3id.org/ride2rail/rb-events#RidesharingCancelled> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing is cancelled by the passenger" .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCancelledPassenger> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing cancelled by passenger" .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingCompleted
+<https://w3id.org/ride2rail/rb-events#RidesharingCompleted> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCompleted> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCompleted> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing is completed" .
+<https://w3id.org/ride2rail/rb-events#RidesharingCompleted> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingCompleted> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing completed" .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingDelayed
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayed> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing is delayed" .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayed> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayed> <http://www.owl-ontologies.com/skos#narrower> <https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayed> <http://www.owl-ontologies.com/skos#narrower> <https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayed> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing delayed" .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver> <http://www.owl-ontologies.com/skos#broader> <https://w3id.org/ride2rail/rb-events#RidesharingDelayed> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing is delayed because of the driver" .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedDriver> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing delayed by driver" .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger> <http://www.owl-ontologies.com/skos#broader> <https://w3id.org/ride2rail/rb-events#RidesharingDelayed> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing is delayed because of thee passenger" .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingDelayedPassenger> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing delayed by passenger" .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingNoShow
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShow> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShow> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing can not be performed because one of the involved actors didn't arrive" .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShow> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShow> <http://www.owl-ontologies.com/skos#narrower> <https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShow> <http://www.owl-ontologies.com/skos#narrower> <https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShow> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing no show" .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver> <http://www.owl-ontologies.com/skos#broader> <https://w3id.org/ride2rail/rb-events#RidesharingNoShow> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing can not be performed because the driver didn't show" .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowDriver> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing no show by driver" .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger> <http://www.owl-ontologies.com/skos#broader> <https://w3id.org/ride2rail/rb-events#RidesharingNoShow> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing can not be performed because the passenger didn't show" .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingNoShowPassenger> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing no show by passenger" .
+# 
+# https://w3id.org/ride2rail/rb-events#RidesharingStarted
+<https://w3id.org/ride2rail/rb-events#RidesharingStarted> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/ride2rail/rb-events#RidesharingStarted> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.owl-ontologies.com/skos#Concept> .
+<https://w3id.org/ride2rail/rb-events#RidesharingStarted> <http://www.owl-ontologies.com/skos#definition> "The booked ridesharing is started" .
+<https://w3id.org/ride2rail/rb-events#RidesharingStarted> <http://www.owl-ontologies.com/skos#inScheme> <https://w3id.org/ride2rail/rb-events> .
+<https://w3id.org/ride2rail/rb-events#RidesharingStarted> <http://www.owl-ontologies.com/skos#prefLabel> "Ridesharing started" .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

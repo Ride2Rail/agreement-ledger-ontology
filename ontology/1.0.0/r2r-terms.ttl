@@ -15,6 +15,7 @@
                                      dc:creator "Mario Scrocca (Cefriel)" ;
                                      dc:description "Ontology describing the basic terms introduced by Ride2Rail for the modelling of smart contracts in the ledger module." ;
                                      dc:title "Ride2Rail Agreement Ledger Ontology" ;
+                                     dc:license <https://creativecommons.org/licenses/by/4.0/> ;
                                      owl:versionInfo "1.0.0" .
 
 
