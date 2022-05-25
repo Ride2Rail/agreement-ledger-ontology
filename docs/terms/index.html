@@ -281,7 +281,7 @@ To express the incentive conditions defined in the requirements, the ontology al
 <h4 id="incentives" class="list">Ridesharing Booking Events</h4>
 
 <span class="markdown">
-To model the events that can be associated with a ridesharing booking we decided to implement an *r2r:RidesharingBookingEvent* SKOS taxonomy published at [https://w3id.org/ride2rail/rb-events](https://w3id.org/ride2rail/rb-events).
+To model the events that can be associated with a ridesharing booking we decided to implement a *RidesharingBookingEvent* SKOS taxonomy published at [https://w3id.org/ride2rail/rb-events](https://w3id.org/ride2rail/rb-events).
 
 As defined in the requirements, five events are identified in the first level of the taxonomy: *r2r:RidesharingStarted* for the start of the ride associated with the ridesharing booking*, r2r:RidesharingCompleted* for the completion of the ride associated with the ridesharing booking, *r2r:RidesharingCancelled* for the cancellation of the ridesharing booking by the passenger or by the driver, *r2r:RidesharingDelayed* for a delay in the ride due to the passenger or to the driver*, r2r:RidesharingNoShow* for a passenger or a driver not showing as expected for the booked ridesharing.
 </span>
@@ -293,7 +293,7 @@ As defined in the requirements, five events are identified in the first level of
 <span class="markdown">
 This section exemplifies the intedend usage of the ontology discussing the RDF representation of the contracts implemented through the Agreement Ledger Module in the Ride2Rail project: Ridesharing booking, Ride with other passengers, Multimodal discount, Multimodal repetition discount.
 
-The RDF serialisation of the agreements is available at [https://w3id.org/ride2rail/agreements#](https://w3id.org/ride2rail/agreements) (*ag:* prefix).
+The RDF serialisation of the agreements is available at [https://w3id.org/ride2rail/agreements#](https://w3id.org/ride2rail/agreements) (*ag:* prefix) through content negotiation. Direct links: [JSON-LD](../../agreements/agreements.jsonld), [RDF/XML](../../agreements/agreements.rdf), [N-Triples](../../agreements/agreements.nt), [Turtle](../../agreements/agreements.ttl).
 
 The first agreement is the *ag:RidesharingBookingSmartContract* ([diagram](https://github.com/Ride2Rail/agreement-ledger-ontology/tree/main/docs/diagrams/ridesharing-booking.png)) that defines the entities associated with a ridesharing booking and their relations. A *ag:RidesharingBookingSmartContract* involves an *r2r:Driver* and an *osdm:Passenger* as participants in an *r2r:RidesharingBooking*. The agreement specifies that the *r2r:RidesharingBooking* is associated with an *r2r:OfferItem* for the passenger, that have a specific *osdm:Price,* that is associated with an *r2r:RidesharingLeg*, and that includes an *r2r:InventoryReservation.* The *r2r:RidesharingLeg* has as transportation service an *r2r:Ride* offered by the driver with a specific *r2r:InventoryAllocation*.
 </span>
